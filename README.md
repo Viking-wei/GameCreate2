@@ -1,3 +1,3 @@
 # GameCreate2
 DO WHAT WE WANT
-暂时不知道写什么，先留在这里
+unity版本为2021.3.13长期支持版本
