@@ -3,13 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEditor;
 
-//以下为相机切换测试代码
 public class MyGameManager : Singleton<MyGameManager>
 {
+    public GameObject character;
+    //scene load
+    public IEnumerator LoadScene(int targetSceneIndex, Vector3 targetDestination)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneIndex, LoadSceneMode.Single);
 
-    public CinemachineVirtualCamera cinemachineVirtualCamera1;
+        operation.allowSceneActivation = false;
 
-    public CinemachineVirtualCamera cinemachineVirtualCamera2;
+        while (!operation.isDone)
+        {
+            if (operation.progress >= 0.9f)
+            {
+                operation.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+        character.transform.position=targetDestination;
+    }
 
 }
