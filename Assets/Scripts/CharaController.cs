@@ -2,50 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
-public class CharaController : Singleton<CharaController>
+
+[RequireComponent(typeof(Rigidbody))]
+public class CharaController : MonoBehaviour
 {
-    public MyCameraManager myCameraManager;
     [Header("BasicSettings")]
     public float speed = 2f;
-    public float downDistance = 9f;
+
     Vector2 _moveDir;
     Rigidbody _rigid;
+    bool _isOnGround;
 
-    protected override void Awake()
+    Vector3 _npcDialogPoint;
+    public static bool isAllowChat;
+    public static Action<Vector3,Vector3> InvokeChat;
+
+    private void Awake()
     {
-        base.Awake();
         _rigid = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         //moving
-        _rigid.velocity = new Vector3(_moveDir.x * speed, _rigid.velocity.y, _moveDir.y * speed);
-
+        if (_isOnGround && !GameManager.Instance.isChatting)
+            _rigid.velocity = new Vector3(_moveDir.x * speed, _rigid.velocity.y, _moveDir.y * speed);
     }
 
-    //character enter buildings callback func
-    void OnTriggerEnter(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
-        if (other.CompareTag("PortalSame"))
-        {
-            int targetCameraIndex=other.GetComponent<PortalSameInfo>().targetCameraIndex;
-            myCameraManager.SetActiveCamera(targetCameraIndex);
+        _isOnGround = true;
+    }
+    private void OnCollisionExit(Collision collisionInfo)
+    {
+        _isOnGround = false;
+    }
 
-            transform.position -= new Vector3(0, downDistance, 0);
-        }
 
-        if (other.CompareTag("PortalDiffer"))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NPC"))
         {
-            PortalDifferInfo portalDifferInfo = other.GetComponent<PortalDifferInfo>();
-            ChangeScene(portalDifferInfo.differInfo.targetSceneIndex, portalDifferInfo.differInfo.targetDestination);
+            isAllowChat = true;
+            _npcDialogPoint=other.transform.GetChild(0).position;
+            Debug.Log(isAllowChat.ToString());
         }
     }
-    void ChangeScene(int targetSceneIndex, Vector3 targetDestination)
+
+    private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(MyGameManager.Instance.LoadScene(targetSceneIndex, targetDestination));
+        if (other.CompareTag("NPC"))
+        {
+            isAllowChat = false;
+            Debug.Log(isAllowChat.ToString());
+        }
     }
 
     //character move callback func
@@ -54,4 +67,13 @@ public class CharaController : Singleton<CharaController>
         _moveDir = context.ReadValue<Vector2>();
         _moveDir = _moveDir.normalized;
     }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(isAllowChat&&!GameManager.Instance.isChatting&&context.started)
+        {
+            InvokeChat?.Invoke(transform.GetChild(0).position,_npcDialogPoint);
+        }
+    }
 }
+
