@@ -376,8 +376,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251135332}
-  m_LocalRotation: {x: 0.19693787, y: 0, z: 0, w: 0.980416}
-  m_LocalPosition: {x: -5.58, y: 7.5000906, z: -27.897423}
+  m_LocalRotation: {x: 0.16812146, y: 0, z: 0, w: 0.9857663}
+  m_LocalPosition: {x: -5.58, y: 6.846675, z: -28.989853}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1817031194}
-  distance: 23.8
-  angle: 49.4
+  distance: 23.43
+  angle: 45
 --- !u!1 &275827463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4878498122401541581, guid: 2452280e9e8d5844a829d46ecc4e4aef,
