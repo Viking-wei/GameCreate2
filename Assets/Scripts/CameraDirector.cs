@@ -19,5 +19,6 @@ public class CameraDirector : MonoBehaviour
         _offSet=new Vector3(0,distance*Mathf.Sin(angle/180),-distance*Mathf.Cos(angle/57));
 
         transform.position=target.position+_offSet;
+        transform.LookAt(target.transform);
     }
 }

@@ -18,4 +18,5 @@ public class DialogContent
     public string theNpcName;
     [Required]public string dialog;
     [Required]public bool isEndSentence;
+
 }

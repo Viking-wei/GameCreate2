@@ -376,14 +376,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251135332}
-  m_LocalRotation: {x: -0.22925021, y: 0.0010911408, z: -0.00039797122, w: -0.97336686}
-  m_LocalPosition: {x: -5.58, y: 6.139986, z: -20.97388}
+  m_LocalRotation: {x: 0.19693787, y: 0, z: 0, w: 0.980416}
+  m_LocalPosition: {x: -5.58, y: 7.5000906, z: -27.897423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 29.806, y: -0.123, z: 0.018}
 --- !u!114 &251135336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1817031194}
-  distance: 16.1
-  angle: 57.9
+  distance: 23.8
+  angle: 49.4
 --- !u!1 &275827463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4878498122401541581, guid: 2452280e9e8d5844a829d46ecc4e4aef,
@@ -1529,6 +1529,7 @@ GameObject:
   - component: {fileID: 1946094918}
   - component: {fileID: 1946094920}
   - component: {fileID: 1946094919}
+  - component: {fileID: 1946094921}
   m_Layer: 5
   m_Name: DialogBackground
   m_TagString: Untagged
@@ -1595,6 +1596,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946094917}
   m_CullTransparentMesh: 1
+--- !u!114 &1946094921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946094917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6edc3085a8d79c4691ced149995136e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104292946
 GameObject:
   m_ObjectHideFlags: 0
