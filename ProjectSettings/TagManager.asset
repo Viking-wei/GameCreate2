@@ -8,6 +8,10 @@ TagManager:
   - NPC
   - EnterPlaneTrigger
   - Collections
+  - Wall
+  - Enemy
+  - BlackCube
+  - Bullet
   layers:
   - Default
   - TransparentFX
