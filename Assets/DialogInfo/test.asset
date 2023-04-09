@@ -12,16 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9fe5f6c95754742ade42bceaf26330, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
+  theNpcName: NPC
   thePara:
-  - isNpc: 1
-    theNpcName: Chris
-    dialog: this is my first test
-    isEndSentence: 0
-  - isNpc: 0
-    theNpcName: 
-    dialog: wish you will success
-    isEndSentence: 0
-  - isNpc: 1
-    theNpcName: Chris
-    dialog: success!!!
-    isEndSentence: 1
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: hi!!
+      jumpID: 1
+  - haveBranch: 0
+    isPlayer: 1
+    branches:
+    - dialog: you will test what this time?
+      jumpID: 2
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: haha,branches!!!
+      jumpID: 3
+  - haveBranch: 1
+    isPlayer: 1
+    branches:
+    - dialog: cool!
+      jumpID: 4
+    - dialog: No I refuse!
+      jumpID: 5
+    - dialog: free you!
+      jumpID: 6
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: sure! and I'd like to end it
+      jumpID: 7
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: okokok,I am so sad
+      jumpID: 7
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: yoooooo!
+      jumpID: 7
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: success!!!!!!!!
+      jumpID: 0
