@@ -8,15 +8,25 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="NewDialog",menuName ="Dialog")]
 public class DialogStorage : ScriptableObject
 {
+    
+    public string theNpcName;
     public List<DialogContent> thePara;
+
+
 }
 
 [Serializable]
 public class DialogContent
 {
-    [Required]public bool isNpc;
-    public string theNpcName;
-    [Required]public string dialog;
-    [Required]public bool isEndSentence;
+    public bool haveBranch;
+    public bool isPlayer;
+    [Required]public List<Branch> branches;
 
+}
+
+[Serializable]
+public class Branch
+{
+    public string dialog;
+    public int jumpID;
 }
