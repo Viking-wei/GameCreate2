@@ -14,28 +14,48 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
 {
 
     [HideInInspector] public bool isChatting;
-    [HideInInspector] public bool isPartEnd;
+    private const int COFFEE_SCENE_INDEX = 0;
+    private const int NIGHT_SCENE_INDEX = 1;
+    private const int PLANE_SCENE_INDEX = 2;
 
-    // [OdinSerialize]
-    public Dictionary<string,DialogStorage> dialogStorageDictionary;
 
+    public Dictionary<string, DialogStorage> dialogStorageDictionary;
+
+#region Serialize Dictionary
     [SerializeField, HideInInspector]
     private SerializationData serializationData;
     SerializationData ISupportsPrefabSerialization.SerializationData { get { return this.serializationData; } set { this.serializationData = value; } }
 
     void ISerializationCallbackReceiver.OnAfterDeserialize()
     {
-		UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
+        UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
     }
 
     void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
-		UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
+        UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
     }
+#endregion
 
-    //scene load
-    public IEnumerator LoadScene(int targetSceneIndex)
+#region Change Scene APIs
+    public void EnterPlane()
     {
+        StartCoroutine(LoadScene(PLANE_SCENE_INDEX));
+    }
+    public void EnterCoffee()
+    {
+        StartCoroutine(LoadScene(COFFEE_SCENE_INDEX));
+    }
+    public void ExitToNight()
+    {
+        StartCoroutine(LoadScene(NIGHT_SCENE_INDEX));
+    }
+#endregion
+
+    //Scene load
+    private IEnumerator LoadScene(int targetSceneIndex)
+    {
+        Debug.Log("Loading...");
         AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneIndex, LoadSceneMode.Single);
 
         operation.allowSceneActivation = false;

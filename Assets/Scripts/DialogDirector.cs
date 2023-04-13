@@ -26,6 +26,7 @@ public class DialogDirector : Singleton<DialogDirector>
     private int _currentIndex;
     private string _npcName;
     private string _currentDialogText;
+    private bool _isPartEnd;
     private bool _isInSelect;
     private bool _endDialog;
     private const string PlayerName = "PlayerName";
@@ -51,7 +52,7 @@ public class DialogDirector : Singleton<DialogDirector>
             if (GameManager.Instance.isChatting)
             {
                 //Debug.Log("Click");
-                if (GameManager.Instance.isPartEnd)
+                if (_isPartEnd)
                     NextDialog();
                 else
                     ShowWordImmediately(_currentDialogText);
@@ -131,7 +132,7 @@ public class DialogDirector : Singleton<DialogDirector>
     private IEnumerator ShowWordSlow(string content)
     {
         //Debug.Log("show slow");
-        GameManager.Instance.isPartEnd = false;
+        _isPartEnd=false;
         string s = "";
         int theCharLength = content.Length, theCharIndex = 0;
 
@@ -148,7 +149,7 @@ public class DialogDirector : Singleton<DialogDirector>
     private void ShowWordImmediately(string content)
     {
         //Debug.Log("show Immediately");
-        GameManager.Instance.isPartEnd = false;
+        _isPartEnd = false;
         StopAllCoroutines();
 
         dialogText.text = content;
@@ -191,7 +192,7 @@ public class DialogDirector : Singleton<DialogDirector>
         else
             _currentIndex = jID;
 
-        GameManager.Instance.isPartEnd = true;
+        _isPartEnd = true;
     }
 
     public void OnButton0()
