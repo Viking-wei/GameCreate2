@@ -39,7 +39,7 @@ public class Plane : MonoBehaviour
         Rotate();
         timer += Time.deltaTime;
        
-        if (timer >= attackRateTime&&Input.GetKey(KeyCode.A))
+        if (timer >= attackRateTime&&Input.GetKey(KeyCode.J))
         {
             timer = 0;
             Attack();  
@@ -52,62 +52,62 @@ public class Plane : MonoBehaviour
     }
     void Move()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed, Space.World);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         { 
             transform.Translate(new Vector3(0, 0,-1) * Time.deltaTime * speed, Space.World);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         { 
             transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * speed, Space.World); 
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * speed, Space.World);
         }
     }
     void Rotate()
     {
-        if (Input.GetKey(KeyCode.Q)&&enemys.Count > 0 && enemys[0] != null)
+        if (Input.GetKey(KeyCode.LeftShift)&&enemys.Count > 0 && enemys[0] != null)
         {
                 transform.LookAt(enemys[0].transform);
         }
         else
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
                 transform.localRotation = Quaternion.Euler(0, 45, 0);
             }
-            else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
                 transform.localRotation = Quaternion.Euler(0, -45, 0);
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
             {
                 transform.localRotation = Quaternion.Euler(0, 135, 0);
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
                 transform.localRotation = Quaternion.Euler(0, -135, 0);
             }
             else
             {
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetKey(KeyCode.W))
                 {
                     transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.S))
                 {
                     transform.localRotation = Quaternion.Euler(0, 180, 0);
                 }
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.D))
                 {
                     transform.localRotation = Quaternion.Euler(0, 90, 0);
                 }
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.A))
                 {
                     transform.localRotation = Quaternion.Euler(0, -90, 0);
                 }
