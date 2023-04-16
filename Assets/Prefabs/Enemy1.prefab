@@ -114,7 +114,6 @@ MonoBehaviour:
   speed: 4
   distance: 5
   hp: 3
-  plane: {fileID: 0}
   isEnemy1: 1
   isEnemy2: 0
   enemyBulletPrefab1: {fileID: 6621263752791044294, guid: da51c3273eb81df45aca3e59cfe8f55b,
@@ -136,5 +135,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 4
   m_CollisionDetection: 0
