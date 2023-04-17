@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="NewDialog",menuName ="Dialog")]
 public class DialogStorage : ScriptableObject
 {
-    
+    public int ID;
     public string theNpcName;
     public List<DialogContent> thePara;
 

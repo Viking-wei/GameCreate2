@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9fe5f6c95754742ade42bceaf26330, type: 3}
+  m_Name: WW
+  m_EditorClassIdentifier: 
+  theNpcName: WW
+  thePara:
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: "\u54C8\u54C8\u3002\u6D4B\u8BD5"
+      jumpID: 1
+  - haveBranch: 0
+    isPlayer: 1
+    branches:
+    - dialog: "\u5BF9\u7684"
+      jumpID: 2
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: "\u9009\u9879\u6D4B\u8BD5"
+      jumpID: 3
+  - haveBranch: 1
+    isPlayer: 1
+    branches:
+    - dialog: "\u7B2C\u4E00\u4E2A\u9009\u9879"
+      jumpID: 4
+    - dialog: "\u7B2C\u4E8C\u4E2A\u9009\u9879"
+      jumpID: 4
+    - dialog: "\u7B2C\u4E09\u7684\u9009\u9879"
+      jumpID: 4
+  - haveBranch: 0
+    isPlayer: 0
+    branches:
+    - dialog: "\u7ED3\u675F"
+      jumpID: 0
