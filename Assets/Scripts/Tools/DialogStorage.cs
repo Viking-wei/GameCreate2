@@ -8,16 +8,14 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName ="NewDialog",menuName ="Dialog")]
 public class DialogStorage : ScriptableObject
 {
-    public int ID;
     public string theNpcName;
     public List<DialogContent> thePara;
-
-
 }
 
 [Serializable]
 public class DialogContent
 {
+    public int ID;
     public bool haveBranch;
     public bool isPlayer;
     [Required]public List<Branch> branches;
