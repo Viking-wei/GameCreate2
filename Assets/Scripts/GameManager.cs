@@ -20,22 +20,19 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
 
 
     public Dictionary<string, DialogStorage> dialogStorageDictionary;
+    public List<string>nameOfNpc;
+    [HideInInspector]public Dictionary<string, int> _favoriabilityRate;
 
-#region Serialize Dictionary
-    [SerializeField, HideInInspector]
-    private SerializationData serializationData;
-    SerializationData ISupportsPrefabSerialization.SerializationData { get { return this.serializationData; } set { this.serializationData = value; } }
-
-    void ISerializationCallbackReceiver.OnAfterDeserialize()
+    protected override void Awake() 
     {
-        UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
-    }
+        base.Awake();
 
-    void ISerializationCallbackReceiver.OnBeforeSerialize()
-    {
-        UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
+        //initialize NPC basic favoriabilityRate[0,100]
+        foreach(string name in nameOfNpc)
+        {
+            _favoriabilityRate.Add(name,50);
+        }
     }
-#endregion
 
 #region Change Scene APIs
     public void EnterPlane()
@@ -69,5 +66,21 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
             yield return null;
         }
     }
+
+#region Serialize Dictionary
+    [SerializeField, HideInInspector]
+    private SerializationData serializationData;
+    SerializationData ISupportsPrefabSerialization.SerializationData { get { return this.serializationData; } set { this.serializationData = value; } }
+
+    void ISerializationCallbackReceiver.OnAfterDeserialize()
+    {
+        UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
+    }
+
+    void ISerializationCallbackReceiver.OnBeforeSerialize()
+    {
+        UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
+    }
+#endregion
 
 }

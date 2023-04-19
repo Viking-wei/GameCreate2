@@ -17,30 +17,32 @@ public class DialogDirector : Singleton<DialogDirector>
     [Required] public TextMeshProUGUI[] s3Branch;
 
 
-
-
+    private const string PlayerName = "我";
     private DialogStorage _wholeDialogInfo;
     private Vector3 _playerDialogPoint;
     private Vector3 _npcDialogPoint;
+    private Dictionary<string, int> _npcDialogIndex;
     private int[] _branchIndexList;
-    private int _currentIndex;
     private string _npcName;
     private string _currentDialogText;
     private bool _isPartEnd;
-    private bool _isInSelect;
+    private bool _isInBranches;
     private bool _endDialog;
-    private const string PlayerName = "PlayerName";
+
 
     protected override void Awake()
     {
         base.Awake();
+
         _branchIndexList = new int[3];
+        _npcDialogIndex = new Dictionary<string, int>();
+
         CharaController.InvokeChat += StartDialog;
     }
 
     public void Onclick(InputAction.CallbackContext context)
     {
-        if (context.started && !_isInSelect)
+        if (context.started && !_isInBranches)
         {
             if (_endDialog)
             {
@@ -66,7 +68,7 @@ public class DialogDirector : Singleton<DialogDirector>
 
         InitialDialogData(playerDialogPoint, npcDialogPoint, dialogStorage);
 
-        if (_wholeDialogInfo.thePara[_currentIndex].haveBranch)
+        if (_wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].haveBranch)
         {
             ProcessBranches();
         }
@@ -77,7 +79,7 @@ public class DialogDirector : Singleton<DialogDirector>
 
     private void NextDialog()
     {
-        if (_wholeDialogInfo.thePara[_currentIndex].haveBranch)
+        if (_wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].haveBranch)
         {
             ProcessBranches();
         }
@@ -96,16 +98,16 @@ public class DialogDirector : Singleton<DialogDirector>
     private void ProcessBranches()
     {
         dialogBackground.gameObject.SetActive(false);
-        _isInSelect = true;
+        _isInBranches = true;
 
-        int branchNum = _wholeDialogInfo.thePara[_currentIndex].branches.Count;
+        int branchNum = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches.Count;
 
         if (branchNum == 2)
         {
             for (int i = 0; i < branchNum; i++)
             {
-                s2Branch[i].text = _wholeDialogInfo.thePara[_currentIndex].branches[i].dialog;
-                _branchIndexList[i] = _wholeDialogInfo.thePara[_currentIndex].branches[i].jumpID;
+                s2Branch[i].text = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[i].dialog;
+                _branchIndexList[i] = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[i].jumpID;
             }
             selector2.transform.position = _playerDialogPoint;
             selector2.SetActive(true);
@@ -116,8 +118,8 @@ public class DialogDirector : Singleton<DialogDirector>
         {
             for (int i = 0; i < branchNum; i++)
             {
-                s3Branch[i].text = _wholeDialogInfo.thePara[_currentIndex].branches[i].dialog;
-                _branchIndexList[i] = _wholeDialogInfo.thePara[_currentIndex].branches[i].jumpID;
+                s3Branch[i].text = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[i].dialog;
+                _branchIndexList[i] = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[i].jumpID;
             }
             selector3.transform.position = _playerDialogPoint;
             selector2.SetActive(false);
@@ -132,7 +134,7 @@ public class DialogDirector : Singleton<DialogDirector>
     private IEnumerator ShowWordSlow(string content)
     {
         //Debug.Log("show slow");
-        _isPartEnd=false;
+        _isPartEnd = false;
         string s = "";
         int theCharLength = content.Length, theCharIndex = 0;
 
@@ -158,18 +160,25 @@ public class DialogDirector : Singleton<DialogDirector>
 
     private void InitialDialogData(Vector3 playerDialogPoint, Vector3 npcDialogPoint, DialogStorage dialogStorage)
     {
-        _currentIndex = 0;
+        _wholeDialogInfo = dialogStorage;
+        _npcName = _wholeDialogInfo.theNpcName;
+
+        _npcDialogIndex.TryAdd(_npcName, 0);
+
+        _endDialog = false;
+        _isPartEnd = false;
+        _isInBranches = false;
+
         _playerDialogPoint = Camera.main.WorldToScreenPoint(playerDialogPoint);
         _npcDialogPoint = Camera.main.WorldToScreenPoint(npcDialogPoint);
-        _wholeDialogInfo = dialogStorage;
-        _npcName = dialogStorage.theNpcName;
+
     }
 
     private void FillRequisiteText()
     {
-        _currentDialogText = _wholeDialogInfo.thePara[_currentIndex].branches[0].dialog;
+        _currentDialogText = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[0].dialog;
 
-        if (_wholeDialogInfo.thePara[_currentIndex].isPlayer)
+        if (_wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].isPlayer)
             nameText.text = PlayerName;
         else
             nameText.text = _npcName;
@@ -178,7 +187,7 @@ public class DialogDirector : Singleton<DialogDirector>
 
     private void SetDialogImagePosition()
     {
-        if (_wholeDialogInfo.thePara[_currentIndex].isPlayer)
+        if (_wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].isPlayer)
             dialogBackground.transform.position = _playerDialogPoint;
         else
             dialogBackground.transform.position = _npcDialogPoint;
@@ -186,35 +195,38 @@ public class DialogDirector : Singleton<DialogDirector>
 
     private void MopUp()
     {
-        var jID = _wholeDialogInfo.thePara[_currentIndex].branches[0].jumpID;
+        var jID = _wholeDialogInfo.thePara[_npcDialogIndex[_npcName]].branches[0].jumpID;
         if (jID == 0)
             _endDialog = true;
         else
-            _currentIndex = jID;
+        {
+            _npcDialogIndex[_npcName] = jID;
+            _npcDialogIndex[_wholeDialogInfo.theNpcName]=_npcDialogIndex[_npcName];
+        }
 
         _isPartEnd = true;
     }
 
     public void OnButton0()
     {
-        _currentIndex = _branchIndexList[0];
-        _isInSelect = false;
+        _npcDialogIndex[_npcName] = _branchIndexList[0];
+        _isInBranches= false;
         selector2.SetActive(false);
         selector3.SetActive(false);
         NextDialog();
     }
     public void OnButton1()
     {
-        _currentIndex = _branchIndexList[1];
-        _isInSelect = false;
+        _npcDialogIndex[_npcName] = _branchIndexList[1];
+        _isInBranches= false;
         selector2.SetActive(false);
         selector3.SetActive(false);
         NextDialog();
     }
     public void OnButton2()
     {
-        _currentIndex = _branchIndexList[2];
-        _isInSelect = false;
+        _npcDialogIndex[_npcName] = _branchIndexList[2];
+        _isInBranches= false;
         selector2.SetActive(false);
         selector3.SetActive(false);
         NextDialog();

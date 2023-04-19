@@ -10,7 +10,11 @@ using UnityEngine.SceneManagement;
 public class CharaController : MonoBehaviour
 {
     [Header("BasicSettings")]
-    public float speed = 2f;
+    public float Speed = 2f;
+
+    private const string TalkPrompt="交谈";
+    private const string CollectionPrompt="拾取";
+    private const string InvadePrompt="入侵";
 
     private Vector2 _moveDir;
     private Rigidbody _rigid;
@@ -20,7 +24,11 @@ public class CharaController : MonoBehaviour
     private bool _isOnGround;
     private bool _isAllowChat;
     private bool _isAllowEnterPlane;
+
     public static Action<Vector3, Vector3, DialogStorage> InvokeChat;
+    public static Action<string> ShowPrompt;
+    public static Action ClosePrompt;
+
 
     private void Awake()
     {
@@ -34,7 +42,6 @@ public class CharaController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
 
@@ -48,7 +55,7 @@ public class CharaController : MonoBehaviour
             if (_moveDir.x > 0.01) _sR.flipX = true;
             if (_moveDir.x < -0.01) _sR.flipX = false;
 
-            _rigid.velocity = new Vector3(_moveDir.x * speed, _rigid.velocity.y, _moveDir.y * speed);
+            _rigid.velocity = new Vector3(_moveDir.x * Speed, _rigid.velocity.y, _moveDir.y * Speed);
 
         }
     }
@@ -68,21 +75,22 @@ public class CharaController : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             _isAllowChat = true;
-
             _npc = other.gameObject;
+
+            ShowPrompt?.Invoke(TalkPrompt);
+            
             Debug.Log(_isAllowChat.ToString() + " " + _npc.name);
         }
         else if (other.CompareTag("EnterPlaneTrigger"))
         {
-            //TODO:
             _isAllowEnterPlane = true;
 
-            Debug.Log("Allow Enter");
-
+            ShowPrompt?.Invoke(InvadePrompt);
         }
         else if (other.CompareTag("Collections"))
         {
             //TODO:
+            ShowPrompt?.Invoke(CollectionPrompt);
         }
 
     }
@@ -92,6 +100,7 @@ public class CharaController : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             _isAllowChat = false;
+
             Debug.Log(_isAllowChat.ToString());
         }
         else if (other.CompareTag("EnterPlaneTrigger"))
@@ -99,8 +108,8 @@ public class CharaController : MonoBehaviour
             _isAllowEnterPlane = false;
 
             Debug.Log("Allow Enter");
-
         }
+        ClosePrompt?.Invoke();
     }
 
     //character move callback func
