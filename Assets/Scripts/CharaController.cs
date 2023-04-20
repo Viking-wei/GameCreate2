@@ -126,6 +126,8 @@ public class CharaController : MonoBehaviour
 
             if (_isAllowChat)
             {
+                ClosePrompt?.Invoke();
+
                 //stop animation when chatting
                 _rigid.velocity = Vector3.zero;
                 _anim.SetFloat("WLAR", 0);
@@ -142,6 +144,8 @@ public class CharaController : MonoBehaviour
             }
             else if(_isAllowEnterPlane)
             {
+                ClosePrompt?.Invoke();
+
                 Debug.Log("Plane");
                 GameManager.Instance.EnterPlane();
             }

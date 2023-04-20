@@ -17,11 +17,16 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     private const int COFFEE_SCENE_INDEX = 0;
     private const int NIGHT_SCENE_INDEX = 1;
     private const int PLANE_SCENE_INDEX = 2;
+    private const int NEWS_NUM=10;
 
-
+    //对话存储系统
     public Dictionary<string, DialogStorage> dialogStorageDictionary;
+    //NPC名单
     public List<string>nameOfNpc;
+    //好感度字典
     [HideInInspector]public Dictionary<string, int> _favoriabilityRate;
+    //新闻字典（索引作为key）
+    [HideInInspector]public bool[] NewsArray;
 
     protected override void Awake() 
     {
@@ -32,6 +37,8 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         {
             _favoriabilityRate.Add(name,50);
         }
+
+        NewsArray=new bool[NEWS_NUM];
     }
 
 #region Change Scene APIs

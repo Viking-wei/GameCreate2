@@ -17,24 +17,28 @@ MonoBehaviour:
   - ID: 0
     haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: "\u6D4B\u8BD5\u81EA\u9002\u5E94\u6587\u672C\u6846\uFF01\uFF01\uFF01"
       jumpID: 1
   - ID: 1
     haveBranch: 0
     isPlayer: 1
+    FavoriabilityChange: 0
     branches:
     - dialog: "\u884C\uFF0C\u4F60\u770B\u6211\u73B0\u5728\u6253\u5F88\u591A\u5B57\uFF0C\u6BD4\u5982\u8BF4\u6211\u73B0\u5728\u4E71\u6253\u5B57\uFF0C\u5F88\u4E71\u5F88\u4E71\u5F88\u4E71\u5F88\u4E71\u7684\u6253\uFF0C\u7136\u540E\u73B0\u5728\u6846\u7684\u957F\u5BBD\u6709\u53D8\u5316"
       jumpID: 2
   - ID: 2
     haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: "\u5F88\u795E\u5947\u554A\uFF01"
       jumpID: 3
   - ID: 3
     haveBranch: 0
     isPlayer: 1
+    FavoriabilityChange: 0
     branches:
     - dialog: "\u5C0F\u610F\u601D\u5566\uFF0C\u6211\u53EA\u9700\u7A0D\u5FAE\u624B\uFF0C\u4FBF\u5DF2\u7ECF\u662F\u8FD9\u4E2A
         \u5F15\u64CE\u7684\u6781\u9650"
@@ -42,6 +46,7 @@ MonoBehaviour:
   - ID: 4
     haveBranch: 0
     isPlayer: 1
+    FavoriabilityChange: 0
     branches:
     - dialog: "\u597D\u5427\uFF0C\u5176\u5B9E\u6211\u5B9E\u73B0\u7684\u65B9\u6CD5\u5E76\u4E0D\u7B97\u9AD8\u660E"
       jumpID: 0

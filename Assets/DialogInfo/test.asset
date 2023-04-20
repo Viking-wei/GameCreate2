@@ -14,23 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theNpcName: NPC
   thePara:
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: hi!!
       jumpID: 1
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 1
+    FavoriabilityChange: 0
     branches:
     - dialog: you will test what this time?
       jumpID: 2
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: haha,branches!!!
       jumpID: 3
-  - haveBranch: 1
+  - ID: 0
+    haveBranch: 1
     isPlayer: 1
+    FavoriabilityChange: 0
     branches:
     - dialog: cool!
       jumpID: 4
@@ -38,23 +46,31 @@ MonoBehaviour:
       jumpID: 5
     - dialog: free you!
       jumpID: 6
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: sure! and I'd like to end it
       jumpID: 7
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: okokok,I am so sad
       jumpID: 7
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: yoooooo!
       jumpID: 7
-  - haveBranch: 0
+  - ID: 0
+    haveBranch: 0
     isPlayer: 0
+    FavoriabilityChange: 0
     branches:
     - dialog: success!!!!!!!!
       jumpID: 0
