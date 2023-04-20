@@ -35,9 +35,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Enemy"&&isEnemyBullet==false)
+        if (col.tag == "Enemy" && isEnemyBullet == false)
         {
             col.GetComponent<Enemy>().TakeDamage(damage);
+            Die();
+        }
+       
+        else if (col.tag == "core" && isEnemyBullet == false)
+        {
+            col.GetComponent<core>().TakeDamage(damage);
             Die();
         }
         else if(col.tag =="BlackCube")

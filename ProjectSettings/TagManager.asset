@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - BlackCube
   - Bullet
+  - core
   layers:
   - Default
   - TransparentFX
