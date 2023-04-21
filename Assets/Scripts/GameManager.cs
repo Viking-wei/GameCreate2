@@ -39,6 +39,13 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         }
 
         NewsArray=new bool[NEWS_NUM];
+
+        SceneManager.activeSceneChanged+=test;
+    }
+
+    private void test(Scene current, Scene next)
+    {
+        Debug.Log("到"+next.name);
     }
 
 #region Change Scene APIs

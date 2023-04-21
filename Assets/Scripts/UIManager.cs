@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
      private void Awake() 
      {
+          
           _promptText=Prompt.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
           CharaController.ShowPrompt+=ShowPromt;
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
           if(_promptText==null)
                Debug.LogWarning("_promptText have not been found");
      }
-     private void LateUpdate() 
+     private void Update() 
      {
           if(Prompt.activeSelf)
                Prompt.transform.position=Camera.main.WorldToScreenPoint(ShowPoint.transform.position);
