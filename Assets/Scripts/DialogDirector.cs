@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class DialogDirector : Singleton<DialogDirector>
+public class DialogDirector : MonoBehaviour
 {
     [Required] public Image dialogBackground;
     [Required] public TextMeshProUGUI nameText;
@@ -30,10 +30,8 @@ public class DialogDirector : Singleton<DialogDirector>
     private bool _endDialog;
 
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-
         _branchIndexList = new int[3];
         _npcDialogIndex = new Dictionary<string, int>();
 
@@ -44,6 +42,8 @@ public class DialogDirector : Singleton<DialogDirector>
     {
         if (context.started && !_isInBranches)
         {
+            Debug.Log("点击事件发生了");
+            
             if (_endDialog)
             {
                 GameManager.Instance.isChatting = false;

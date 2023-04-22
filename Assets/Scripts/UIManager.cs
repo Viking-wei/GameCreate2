@@ -2,37 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
 
 public class UIManager : MonoBehaviour
 {
-     public Transform ShowPoint;
-     public GameObject Prompt;
-     private TextMeshProUGUI _promptText;
+    [Required] public GameObject Prompt;
 
-     private void Awake() 
-     {
-          
-          _promptText=Prompt.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+    private Vector3 _showPoint;
+    private TextMeshProUGUI _promptText;
+    private const float LerpRate = 0.5f;
 
-          CharaController.ShowPrompt+=ShowPromt;
-          CharaController.ClosePrompt+=ClosePrompt;
+    private void Awake()
+    {
+        CharaController.ShowPrompt += ShowPromt;
+        CharaController.ClosePrompt += ClosePrompt;
 
-          if(_promptText==null)
-               Debug.LogWarning("_promptText have not been found");
-     }
-     private void Update() 
-     {
-          if(Prompt.activeSelf)
-               Prompt.transform.position=Camera.main.WorldToScreenPoint(ShowPoint.transform.position);
-     }
+        var ShowPrompt = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1);
 
-     private void ShowPromt(string key)
-     {
-          _promptText.text=key;
-          Prompt.SetActive(true);
-     }
-     private void ClosePrompt()
-     {
-          Prompt.SetActive(false);
-     }
+        _showPoint = Camera.main.WorldToScreenPoint(ShowPrompt.position);
+
+        Prompt.transform.position = _showPoint;
+
+        _promptText = Prompt.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (_promptText == null)
+            Debug.LogWarning("_promptText have not been found");
+    }
+
+
+    private void ShowPromt(string key)
+    {
+        _promptText.text = key;
+
+        if (Prompt != null)
+            Prompt.SetActive(true);
+        else
+            Debug.Log("Prompt is null");
+    }
+    private void ClosePrompt()
+    {
+        if (Prompt != null)
+            Prompt.SetActive(false);
+        else
+            Debug.Log("Prompt is null");
+    }
 }

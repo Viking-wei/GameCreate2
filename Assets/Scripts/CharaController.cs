@@ -37,11 +37,6 @@ public class CharaController : MonoBehaviour
         _sR = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
-    {
-
-    }
-
     private void FixedUpdate()
     {
 

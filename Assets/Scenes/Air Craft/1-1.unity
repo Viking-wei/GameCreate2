@@ -800,6 +800,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92bf4777a17d5740932ffc4d06e6b6a, type: 3}
+--- !u!1 &213098442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 651317008383725751, guid: a92bf4777a17d5740932ffc4d06e6b6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 213098441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &217911623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2218,7 +2224,7 @@ MonoBehaviour:
     type: 3}
   enemy2Prefab: {fileID: 2797588881656686916, guid: 2c5f0584d9e79964ab43719605c62027,
     type: 3}
-  outside: {fileID: 0}
+  outside: {fileID: 213098442}
   planecol: {fileID: 134721761}
   plane: {fileID: 4625720556528775305}
   spaces:
