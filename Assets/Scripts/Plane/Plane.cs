@@ -14,6 +14,7 @@ public class Plane : MonoBehaviour
     public Transform firePosition;
     float attackRateTime = 0.3f;
     public List<GameObject> enemys = new List<GameObject>();
+      
     
 
     private void OnTriggerEnter(Collider col)
@@ -31,7 +32,8 @@ public class Plane : MonoBehaviour
         }
     }
 
-  
+   
+
     void Update()
     {
         GameObject.Find("Texthp").GetComponent<Text>().text = "Hp=" + hp;
@@ -71,45 +73,53 @@ public class Plane : MonoBehaviour
     }
     void Rotate()
     {
-        if (Input.GetKey(KeyCode.LeftShift)&&enemys.Count > 0 && enemys[0] != null)
+        
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-                transform.LookAt(enemys[0].transform);
+            if (enemys.Count > 0 && enemys[0] != null)
+            {
+                Vector3 targetPosition = enemys[0].transform.position;
+                targetPosition.y = transform.position.y;
+                transform.LookAt(targetPosition);
+                transform.Rotate(new Vector3(-90, 0, 0), Space.Self);
+            }
+            
         }
         else
         {
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
-                transform.localRotation = Quaternion.Euler(0, 45, 0);
+                transform.localRotation = Quaternion.Euler(-90, 45, 0);
             }
             else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
-                transform.localRotation = Quaternion.Euler(0, -45, 0);
+                transform.localRotation = Quaternion.Euler(-90, -45, 0);
             }
             else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
             {
-                transform.localRotation = Quaternion.Euler(0, 135, 0);
+                transform.localRotation = Quaternion.Euler(-90, 135, 0);
             }
             else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
-                transform.localRotation = Quaternion.Euler(0, -135, 0);
+                transform.localRotation = Quaternion.Euler(-90, -135, 0);
             }
             else
             {
                 if (Input.GetKey(KeyCode.W))
                 {
-                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                    transform.localRotation = Quaternion.Euler(-90, 180, 0);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    transform.localRotation = Quaternion.Euler(0, 90, 0);
+                    transform.localRotation = Quaternion.Euler(-90, 90, 0);
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.localRotation = Quaternion.Euler(0, -90, 0);
+                    transform.localRotation = Quaternion.Euler(-90, -90, 0);
                 }
             }
         }
@@ -123,7 +133,7 @@ public class Plane : MonoBehaviour
             }
        
       GameObject bullet = GameObject.Instantiate(bulletPrefab, firePosition.position, Quaternion.identity);
-      bullet.transform.forward = transform.forward;
+      bullet.transform.forward = -transform.up;
        
     }
     public void TakeDamage(int damage)
