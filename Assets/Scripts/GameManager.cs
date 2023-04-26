@@ -27,11 +27,14 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     [HideInInspector]public Dictionary<string, int> _favoriabilityRate;
     //新闻字典（索引作为key）
     [HideInInspector]public bool[] NewsArray;
+    //NPC对话索引记录
+    [HideInInspector]public Dictionary<string, int> NpcDialogIndex;
 
     protected override void Awake() 
     {
         base.Awake();
 
+        _favoriabilityRate=new Dictionary<string, int>();
         //initialize NPC basic favoriabilityRate[0,100]
         foreach(string name in nameOfNpc)
         {
@@ -39,6 +42,8 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         }
 
         NewsArray=new bool[NEWS_NUM];
+
+        NpcDialogIndex=new Dictionary<string, int>();
 
         SceneManager.activeSceneChanged+=test;
     }

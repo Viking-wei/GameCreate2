@@ -99,14 +99,14 @@ MonoBehaviour:
     - dialog: "\u90A3\u91CC\u6709\u9152\u5427\uFF1F"
       jumpID: 12
   - ID: 12
-    haveBranch: 0
+    haveBranch: 1
     isPlayer: 1
     FavoriabilityChange: 0
     branches:
     - dialog: "\u90A3\u662F\u901A\u5F80\u5783\u573E\u573A\u7684\u8DEF."
       jumpID: 13
     - dialog: "\u90A3\u662F\u4E00\u79CD\u2026\u2026\u5E7D\u9ED8\u7684\u8BF4\u6CD5\u3002"
-      jumpID: 18
+      jumpID: 15
   - ID: 13
     haveBranch: 0
     isPlayer: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
     FavoriabilityChange: 0
     branches:
     - dialog: "\u8FD9\u4E2A\u5730\u65B9\u6839\u672C\u6CA1\u6709\u9152\u5427\u3002"
-      jumpID: 15
+      jumpID: 0
   - ID: 15
     haveBranch: 0
     isPlayer: 1

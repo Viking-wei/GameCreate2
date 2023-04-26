@@ -147,5 +147,29 @@ public class CharaController : MonoBehaviour
 
         }
     }
+    private void OnDestroy() 
+    {
+        var ic=InvokeChat.GetInvocationList();
+        foreach(var a in ic)
+        {
+            InvokeChat-=a as Action<Vector3, Vector3, DialogStorage>;
+        }
+
+        var sp=ShowPrompt.GetInvocationList();
+        foreach(var a in sp)
+        {
+            ShowPrompt-=a as Action<string>;
+        }
+
+        var cp=ClosePrompt.GetInvocationList();
+        foreach(var a in cp)
+        {
+            ClosePrompt-=a as Action;
+        }
+        
+        Debug.Log("委托清除完成");
+    }
+
+    
 }
 
