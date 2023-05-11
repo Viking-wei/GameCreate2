@@ -9,7 +9,6 @@ public class DragMe : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHand
     private Vector3 _posOffSet;
     private float _wide;
     private Vector3 _originalPos;
-
     private void Awake() 
     {
         _rectTransform=GetComponent<RectTransform>();

@@ -11,6 +11,8 @@ public class CharaController : MonoBehaviour
 {
     [Header("BasicSettings")]
     public float Speed = 2f;
+    [HideInInspector]
+    public PlayerInput playerInput;
 
     private const string TalkPrompt="交谈";
     private const string CollectionPrompt="拾取";
@@ -35,13 +37,19 @@ public class CharaController : MonoBehaviour
         _rigid = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         _sR = GetComponent<SpriteRenderer>();
+        playerInput=GetComponent<PlayerInput>();
+    }
+
+    private void Start() 
+    {
+        transform.position = GameManager.Instance.playerPosition;
     }
 
     private void FixedUpdate()
     {
 
         //moving
-        if (_isOnGround && !GameManager.Instance.isChatting)
+        if (_isOnGround)
         {
             //Animation processing
             _anim.SetFloat("WLAR", Mathf.Abs(_moveDir.x));
@@ -51,7 +59,6 @@ public class CharaController : MonoBehaviour
             if (_moveDir.x < -0.01) _sR.flipX = false;
 
             _rigid.velocity = new Vector3(_moveDir.x * Speed, _rigid.velocity.y, _moveDir.y * Speed);
-
         }
     }
 
@@ -116,12 +123,13 @@ public class CharaController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started && !GameManager.Instance.isChatting)
+        if (context.started)
         {
-
             if (_isAllowChat)
             {
                 ClosePrompt?.Invoke();
+
+                playerInput.SwitchCurrentActionMap("Dialog");
 
                 //stop animation when chatting
                 _rigid.velocity = Vector3.zero;
@@ -149,25 +157,32 @@ public class CharaController : MonoBehaviour
     }
     private void OnDestroy() 
     {
-        var ic=InvokeChat.GetInvocationList();
-        foreach(var a in ic)
+        if(InvokeChat!=null)
         {
-            InvokeChat-=a as Action<Vector3, Vector3, DialogStorage>;
-        }
+            var ic=InvokeChat.GetInvocationList();
+            foreach(var a in ic)
+            {
+                InvokeChat-=a as Action<Vector3, Vector3, DialogStorage>;
+            }
 
-        var sp=ShowPrompt.GetInvocationList();
-        foreach(var a in sp)
-        {
-            ShowPrompt-=a as Action<string>;
-        }
+            var sp=ShowPrompt.GetInvocationList();
+            foreach(var a in sp)
+            {
+                ShowPrompt-=a as Action<string>;
+            }
 
-        var cp=ClosePrompt.GetInvocationList();
-        foreach(var a in cp)
-        {
-            ClosePrompt-=a as Action;
+            var cp=ClosePrompt.GetInvocationList();
+            foreach(var a in cp)
+            {
+                ClosePrompt-=a as Action;
+            }
+            
+            Debug.Log("委托清除完成");
         }
-        
-        Debug.Log("委托清除完成");
+        else
+        {
+            Debug.Log("委托为空");
+        }
     }
 
     
