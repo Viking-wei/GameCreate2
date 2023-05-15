@@ -114,14 +114,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   distance: 5
-  hp: 7
+  hp: 21
   isEnemy1: 0
   isEnemy2: 1
   enemyBulletPrefab1: {fileID: 6621263752791044294, guid: da51c3273eb81df45aca3e59cfe8f55b,
     type: 3}
   enemyBulletPrefab2: {fileID: 4398588778352126634, guid: 12356f39f22b336418a30e11354eea78,
     type: 3}
-  attackRateTime: 1.2
+  attackRateTime1: 1
+  attackRateTime2: 0.7
 --- !u!54 &2797588881656686970
 Rigidbody:
   m_ObjectHideFlags: 0

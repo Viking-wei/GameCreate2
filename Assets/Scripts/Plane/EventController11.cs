@@ -36,8 +36,8 @@ public class EventController11 : MonoBehaviour
        
 
         
-        enemysIn1 = new GameObject[2];
-        enemysIn2 = new GameObject[1];
+        enemysIn1 = new GameObject[5];
+        enemysIn2 = new GameObject[3];
         
 
 
@@ -79,13 +79,18 @@ public class EventController11 : MonoBehaviour
     {
         enemysIn1[0] = Instantiate(enemy1Prefab, new Vector3(-19, 0.3f,19), Quaternion.identity);
         enemysIn1[1] = Instantiate(enemy1Prefab, new Vector3(-20, 0.3f,16), Quaternion.identity);
-        
-       
+        enemysIn1[2] = Instantiate(enemy2Prefab, new Vector3(-12, 0.3f, 19), Quaternion.identity);
+        enemysIn1[3] = Instantiate(enemy1Prefab, new Vector3(-6, 0.3f, 14), Quaternion.identity);
+        enemysIn1[4] = Instantiate(enemy2Prefab, new Vector3(-9, 0.3f, 16), Quaternion.identity);
+
+
     }
     private void Spawn2()
     {
-        enemysIn2[0] = Instantiate(enemy2Prefab, new Vector3(1, 0.3f, 35), Quaternion.identity);
-       isSpawnAll = true;
+        enemysIn2[0] = Instantiate(enemy1Prefab, new Vector3(-7, 0.3f, 35), Quaternion.identity);
+        enemysIn2[1] = Instantiate(enemy2Prefab, new Vector3(-10, 0.3f, 33), Quaternion.identity);
+        enemysIn2[2] = Instantiate(enemy2Prefab, new Vector3(1, 0.3f, 35), Quaternion.identity);
+        isSpawnAll = true;
     }  
     private void Isalldown()
     {

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   distance: 5
-  hp: 3
+  hp: 9
   isEnemy1: 1
   isEnemy2: 0
   enemyBulletPrefab1: {fileID: 6621263752791044294, guid: da51c3273eb81df45aca3e59cfe8f55b,
