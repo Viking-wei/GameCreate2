@@ -8,13 +8,14 @@ using UnityEngine.InputSystem;
 
 public class DialogDirector : MonoBehaviour
 {
-    private Image dialogBackground;
-    private TextMeshProUGUI nameText;
-    private TextMeshProUGUI dialogText;
-    private GameObject selector2;
-    private TextMeshProUGUI[] s2Branch;
-    private GameObject selector3;
-    private TextMeshProUGUI[] s3Branch;
+    public CharaController charaController;
+    public Image dialogBackground;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogText;
+    public GameObject selector2;
+    public TextMeshProUGUI[] s2Branch;
+    public GameObject selector3;
+    public TextMeshProUGUI[] s3Branch;
 
     private const string PlayerName = "我";
     private DialogStorage _wholeDialogInfo;
@@ -31,60 +32,39 @@ public class DialogDirector : MonoBehaviour
 
     private void Awake()
     {
-        s2Branch=new TextMeshProUGUI[2];
-        s3Branch=new TextMeshProUGUI[3];
-
-        Debug.Log("Awake 函数执行了");
-
-        dialogBackground = transform.GetChild(0).GetComponent<Image>();
-        nameText = dialogBackground.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        dialogText = dialogBackground.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-
-        selector2 = transform.GetChild(1).gameObject;
-        for (int i = 0; i < selector2.transform.childCount; i++)
-            s2Branch[i] = selector2.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        selector3 = transform.GetChild(2).gameObject;
-        for (int i = 0; i < selector2.transform.childCount; i++)
-            s3Branch[i] = selector2.transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>();
-
         _branchIndexList = new int[3];
         _npcDialogIndex = new Dictionary<string, int>();
 
         CharaController.InvokeChat += StartDialog;
     }
 
-    private void Start() 
+    private void Start()
     {
-        _npcDialogIndex =GameManager.Instance.NpcDialogIndex;
+        _npcDialogIndex = GameManager.Instance.NpcDialogIndex;
     }
 
     public void Onclick(InputAction.CallbackContext context)
     {
         if (context.started && !_isInBranches)
         {
-
             if (_endDialog)
             {
-                GameManager.Instance.isChatting = false;
                 dialogBackground.gameObject.SetActive(false);
+                charaController.playerInput.SwitchCurrentActionMap("Play");
                 return;
             }
+            
+            Debug.Log("Click");
+            if (_isPartEnd)
+                NextDialog();
+            else
+                ShowWordImmediately(_currentDialogText);
 
-            if (GameManager.Instance.isChatting)
-            {
-                //Debug.Log("Click");
-                if (_isPartEnd)
-                    NextDialog();
-                else
-                    ShowWordImmediately(_currentDialogText);
-            }
         }
     }
 
     private void StartDialog(Vector3 playerDialogPoint, Vector3 npcDialogPoint, DialogStorage dialogStorage)
     {
-        GameManager.Instance.isChatting = true;
 
         InitialDialogData(playerDialogPoint, npcDialogPoint, dialogStorage);
 
@@ -94,7 +74,6 @@ public class DialogDirector : MonoBehaviour
         }
         else
             NextDialog();
-
     }
 
     private void NextDialog()
@@ -146,7 +125,7 @@ public class DialogDirector : MonoBehaviour
             selector3.SetActive(true);
         }
         else
-            Debug.LogWarning("Configure error  "+branchNum.ToString());
+            Debug.LogWarning("Configure error  " + branchNum.ToString());
     }
 
 

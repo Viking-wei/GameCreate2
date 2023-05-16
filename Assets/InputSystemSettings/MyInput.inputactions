@@ -2,7 +2,7 @@
     "name": "MyInput",
     "maps": [
         {
-            "name": "play",
+            "name": "Play",
             "id": "af6effa4-f608-4796-b827-08ff128139f1",
             "actions": [
                 {
@@ -21,15 +21,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ClickWhenChatting",
-                    "type": "Button",
-                    "id": "3a660fd3-2c57-43a5-8025-14f08d07f817",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(pressPoint=0.5)",
                     "initialStateCheck": false
                 },
                 {
@@ -111,23 +102,40 @@
                 },
                 {
                     "name": "",
-                    "id": "8b18f4c2-4e44-47ed-91c3-ac73c030e1e0",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ClickWhenChatting",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4e657d9f-521a-427d-b5b9-0dad90f87982",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Details",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dialog",
+            "id": "551f309a-4c50-49ab-8b57-74fbaf77a669",
+            "actions": [
+                {
+                    "name": "ClickWhenChatting",
+                    "type": "Button",
+                    "id": "3c1cd4d5-c076-4bb4-af00-b52553db589b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.5)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ce4520c1-fb14-4691-92b3-6edaf9d71f25",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickWhenChatting",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
