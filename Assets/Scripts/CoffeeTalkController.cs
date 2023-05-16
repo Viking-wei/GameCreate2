@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using Newtonsoft.Json;
+using System;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -22,9 +21,10 @@ public class CoffeeTalkController : MonoBehaviour
     public GameObject npcDialogPoint;
     [Header("Input Setting")]
     public PlayerInput playerInput;
+    [Header("Coffee Result")]
+    public CoffeeMakerController coffeeMakerController;
 
-    const string Path = "\\DialogInfo\\TestTalk.json";
-    const string PlayerName = "Player";
+    const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
     [SerializeField]
     private int _currentID = 0;
@@ -34,25 +34,12 @@ public class CoffeeTalkController : MonoBehaviour
     private Vector3 _playerDialogPoint;
     private Vector3 _npcDialogPoint;
     private string _currentDialogText;
-    private void Awake()
-    {
-        string data = ReadJson();
-        _dialogTextRepository = JsonConvert.DeserializeObject<DialogTextRepository>(data);
-    }
-    private string ReadJson()
-    {
-        string jsonData;
-        string fileUrl = Application.dataPath + Path;
 
-        using (StreamReader sr = File.OpenText(fileUrl))
-        {
-            //数据保存
-            jsonData = sr.ReadToEnd();
-            sr.Close();
-        }
-
-        // Debug.Log(jsonData);
-        return jsonData;
+    private void Start()
+    {
+        //FIXME: This is a temporary solution to add dialog data
+        coffeeMakerController.coffeeResultDelegate+=ProcessCoffeeResult;
+        _dialogTextRepository = DialogText.dialogTextRepository[0];
     }
 
     public void Click(InputAction.CallbackContext context)
@@ -84,51 +71,50 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void NextDialog()
     {
-        if (_dialogTextRepository.Data[_currentID].BranchesNum != 0)
+        if ((_currentID - 1) > 0)
         {
-            ProcessBranches();
+            ProcessExtendInfo(_dialogTextRepository.Data[_currentID - 1].ExtendInfo);
         }
-        else
-        {
-            FillRequisiteText();
 
-            SetDialogImagePosition();
+        FillRequisiteText();
 
-            dialogBackground.gameObject.SetActive(true);
+        SetDialogImagePosition();
 
-            StartCoroutine(ShowWordSlow(_currentDialogText));
-        }
+        dialogBackground.gameObject.SetActive(true);
+
+        StartCoroutine(ShowWordSlow(_currentDialogText));
+
     }
 
-    private void ProcessBranches()
-    {
-        dialogBackground.gameObject.SetActive(false);
-        _isInBranches = true;
+    // private void ProcessBranches()
+    // {
+    //     dialogBackground.gameObject.SetActive(false);
+    //     _isInBranches = true;
 
-        int branchNum = _dialogTextRepository.Data[_currentID].BranchesNum;
-        int baseID = _dialogTextRepository.Data[_currentID].JumpID;
+    //     int branchNum = _dialogTextRepository.Data[_currentID].BranchesNum;
+    //     int baseID = _dialogTextRepository.Data[_currentID].JumpID;
 
-        if (branchNum == 2)
-        {
-            for (int i = 0; i < branchNum; i++)
-            {
-                s2Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
-            }
-            selector2.SetActive(true);
-            selector3.SetActive(false);
-        }
-        else if (branchNum == 3)
-        {
-            for (int i = 0; i < branchNum; i++)
-            {
-                s3Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
-            }
-            selector2.SetActive(false);
-            selector3.SetActive(true);
-        }
-        else
-            Debug.LogWarning($"Configure error of {_currentID} ");
-    }
+    //     if (branchNum == 2)
+    //     {
+    //         for (int i = 0; i < branchNum; i++)
+    //         {
+    //             s2Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
+    //         }
+    //         selector2.SetActive(true);
+    //         selector3.SetActive(false);
+    //     }
+    //     else if (branchNum == 3)
+    //     {
+    //         for (int i = 0; i < branchNum; i++)
+    //         {
+    //             s3Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
+    //         }
+    //         selector2.SetActive(false);
+    //         selector3.SetActive(true);
+    //     }
+    //     else
+    //         Debug.LogWarning($"Configure error of {_currentID} ");
+    // }
 
     private IEnumerator ShowWordSlow(string content)
     {
@@ -143,6 +129,7 @@ public class CoffeeTalkController : MonoBehaviour
             theCharIndex++;
             yield return new WaitForSeconds(0.05f);
         }
+
         MopUp();
     }
 
@@ -152,6 +139,7 @@ public class CoffeeTalkController : MonoBehaviour
         StopAllCoroutines();
 
         dialogText.text = content;
+
         MopUp();
     }
 
@@ -197,5 +185,50 @@ public class CoffeeTalkController : MonoBehaviour
         selector2.SetActive(false);
         selector3.SetActive(false);
         NextDialog();
+    }
+
+    private void ProcessCoffeeResult(CoffeeResult coffeeResult)
+    {
+        //FIXME: This is a temporary solution to add dialog data
+        switch (coffeeResult)
+        {
+            case CoffeeResult.Good:
+                _currentID = _dialogTextRepository.Data[_currentID].JumpID;
+                break;
+            case CoffeeResult.Bad:
+                _currentID = _dialogTextRepository.Data[_currentID].JumpID + 1;
+                break;
+            case CoffeeResult.Normal:
+                _currentID = _dialogTextRepository.Data[_currentID].JumpID + 2;
+                break;
+            default:
+                Debug.LogWarning($"CoffeeResult error of {_currentID} ");
+                break;
+        }
+        StartDialog();
+    }
+
+    private void ProcessExtendInfo(int extendInfo)
+    {   //解锁线索
+        if(Convert.ToBoolean(extendInfo&1))
+        {
+            Debug.Log("解锁线索");
+        }
+        //解锁文件
+        if(Convert.ToBoolean(extendInfo&2))
+        {
+            Debug.Log("解锁文件");
+        }
+        //制作咖啡
+        if(Convert.ToBoolean(extendInfo&4))
+        {
+            playerInput.SwitchCurrentActionMap("Play");
+            coffeeMakerController._playableDirector.Play();
+        }
+        //分支对话
+        if(Convert.ToBoolean(extendInfo&8))
+        {
+            Debug.Log("分支对话");
+        }
     }
 }

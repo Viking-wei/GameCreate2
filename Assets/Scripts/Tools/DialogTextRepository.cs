@@ -15,5 +15,5 @@ public class DialogTextRepositoryNode
     public string Name;
     public string Content;
     public int JumpID;
-    public int BranchesNum;
+    public int ExtendInfo;
 }

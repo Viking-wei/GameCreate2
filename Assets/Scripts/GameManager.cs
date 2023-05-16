@@ -20,6 +20,8 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     private const int PLANE_SCENE_INDEX = 2;
     private const int NEWS_NUM=10;
 
+    static public int Paragraph=0;
+
     private Animator _transitionAnimator;
 
     //对话存储系统
@@ -58,6 +60,11 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         if(_transitionAnimator==null)
         {
             Debug.LogError("Can't find transition animator");
+        }
+
+        if(next.buildIndex==COFFEE_SCENE_INDEX)
+        {
+            Paragraph++;
         }
     }
 
