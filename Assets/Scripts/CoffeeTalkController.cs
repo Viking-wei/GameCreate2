@@ -26,7 +26,6 @@ public class CoffeeTalkController : MonoBehaviour
 
     const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
-    [SerializeField]
     private int _currentID = 0;
     private bool _isInBranches = false;
     private bool _endDialog = false;
@@ -37,8 +36,10 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void Start()
     {
+        
+        coffeeMakerController.CoffeeResultDelegate+=ProcessCoffeeResult;
+        
         //FIXME: This is a temporary solution to add dialog data
-        coffeeMakerController.coffeeResultDelegate+=ProcessCoffeeResult;
         _dialogTextRepository = DialogText.dialogTextRepository[0];
     }
 
@@ -223,7 +224,7 @@ public class CoffeeTalkController : MonoBehaviour
         if(Convert.ToBoolean(extendInfo&4))
         {
             playerInput.SwitchCurrentActionMap("Play");
-            coffeeMakerController._playableDirector.Play();
+            coffeeMakerController.playableDirector.Play();
         }
         //分支对话
         if(Convert.ToBoolean(extendInfo&8))

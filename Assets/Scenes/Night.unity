@@ -414,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &81643615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1838,12 +1838,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 109606541}
         m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
-        m_MethodName: ShowNewsContent2
-        m_Mode: 1
+        m_MethodName: ShowNewsContent
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3452,12 +3452,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 109606541}
         m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
-        m_MethodName: ShowNewsContent1
-        m_Mode: 1
+        m_MethodName: ShowNewsContent
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4191,8 +4191,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 109606541}
         m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
-        m_MethodName: ShowNewsContent0
-        m_Mode: 1
+        m_MethodName: ShowNewsContent
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9238,7 +9238,7 @@ PrefabInstance:
     - target: {fileID: 8021616562929914043, guid: a2e12226978b5774098991d665ee4383,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2e12226978b5774098991d665ee4383, type: 3}

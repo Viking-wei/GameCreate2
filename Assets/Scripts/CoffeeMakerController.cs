@@ -5,22 +5,24 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 public class CoffeeMakerController : MonoBehaviour
 {
     //when coffee is done, this delegate is called
-
-    public PlayableDirector _playableDirector;
+    
+    [HideInInspector]
+    public PlayableDirector playableDirector;
     private TimelineAsset _timelineAsset;
-    public Action<CoffeeResult> coffeeResultDelegate;
+    public Action<CoffeeResult> CoffeeResultDelegate;
     private List<string> _coffeeResult = new List<string>();
     
     private void Awake()
     {
-        _playableDirector = GetComponent<PlayableDirector>();
-        _timelineAsset = (TimelineAsset)_playableDirector.playableAsset;
+        playableDirector = GetComponent<PlayableDirector>();
+        _timelineAsset = (TimelineAsset)playableDirector.playableAsset;
 
-        _playableDirector.stopped += OnPlayableDirectorStopped;
+        playableDirector.stopped += OnPlayableDirectorStopped;
 
     }
 
@@ -33,7 +35,7 @@ public class CoffeeMakerController : MonoBehaviour
         }
         
         //FIXME: Need to invoke a Delegate
-        coffeeResultDelegate?.Invoke(ProcessCoffeeResult(_coffeeResult));
+        CoffeeResultDelegate?.Invoke(ProcessCoffeeResult(_coffeeResult));
 
         _coffeeResult.Clear();
     }
@@ -43,7 +45,7 @@ public class CoffeeMakerController : MonoBehaviour
         //FIXME: This is a temporary solution to play the timeline
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _playableDirector.Play();
+            playableDirector.Play();
         }
     }
 
@@ -53,13 +55,13 @@ public class CoffeeMakerController : MonoBehaviour
     {
         if (muteTrackName.Length==0)
         {
-            _playableDirector.Resume();
+            playableDirector.Resume();
             return;
         }
 
         if (MuteTrack(muteTrackName))
         {
-            _playableDirector.Resume();
+            playableDirector.Resume();
         }
         else
         {
@@ -78,13 +80,13 @@ public class CoffeeMakerController : MonoBehaviour
         if(coffeeResult.Count!=3)
         {
             Debug.LogError("coffee result is not 3");
-            return CoffeeResult.error;
+            return CoffeeResult.Error;
         }
 
         string coffeeType=coffeeResult[0];
         string coffeeDepth=coffeeResult[1];
         string coffeeTaste=coffeeResult[2];
-        Dictionary<string, float> coffeeResultDict=DialogText.coffeeResultDict;
+        Dictionary<string, float> coffeeResultDict=DialogText.GetResultConfig(GameManager.Paragraph);
 
         float coffeeTypeValue=coffeeResultDict[coffeeType];
         float coffeeDepthValue=coffeeResultDict[coffeeDepth];
@@ -117,7 +119,7 @@ public class CoffeeMakerController : MonoBehaviour
         {
             //TODO: paragraph 3
             Debug.LogError("paragraph 3 not complete");
-            return CoffeeResult.error;
+            return CoffeeResult.Error;
         }
     }
 
@@ -137,11 +139,11 @@ public class CoffeeMakerController : MonoBehaviour
 
     private void OnDestroy() 
     {
-        _playableDirector.stopped-= OnPlayableDirectorStopped;
+        playableDirector.stopped-= OnPlayableDirectorStopped;
     }
 }
 public enum CoffeeResult{
     Bad,
     Normal,
     Good,
-    error}
+    Error}
