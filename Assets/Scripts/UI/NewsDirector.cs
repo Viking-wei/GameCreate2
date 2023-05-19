@@ -14,7 +14,7 @@ public class NewsDirector : MonoBehaviour
     [HideInInspector] public List<Transform> NewsButtonList;
     private bool _isShowNews;
     private NewsList _newsList;
-    private const string Path = "\\DialogInfo\\News.json";
+    private const string Path = "/DialogInfo/News.json";
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class NewsDirector : MonoBehaviour
         }
     }
 
-    public void ShowNewsContent0(int index)
+    public void ShowNewsContent(int index)
     {
         NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[index].NewsBody;
     }

@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     private const int PLANE_SCENE_INDEX = 2;
     private const int NEWS_NUM=10;
 
-    static public int Paragraph=0;
+    public static int Paragraph=0;
 
     private Animator _transitionAnimator;
 
