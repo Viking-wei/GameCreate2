@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Player Input")]
-public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
+public class PlayerInput_2D : ScriptableObject, InputActions.IGameplayActions
 {
     public event UnityAction<Vector2>onMove=delegate { };
     public event UnityAction onStopMove = delegate { };

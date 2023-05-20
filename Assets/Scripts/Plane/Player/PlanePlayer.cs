@@ -7,7 +7,7 @@ using UnityEngine.ProBuilder;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlanePlayer : MonoBehaviour
 {
-    [SerializeField] PlayerInput input;
+    [SerializeField] PlayerInput_2D input;
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] float accelerationTime = 3f;
     [SerializeField] float decelerationTime = 3f;
