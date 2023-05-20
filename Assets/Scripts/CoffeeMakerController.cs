@@ -23,6 +23,7 @@ public class CoffeeMakerController : MonoBehaviour
         _timelineAsset = (TimelineAsset)playableDirector.playableAsset;
 
         playableDirector.stopped += OnPlayableDirectorStopped;
+
     }
 
     /// <summary>the method is called when the timeline is stopped</summary>

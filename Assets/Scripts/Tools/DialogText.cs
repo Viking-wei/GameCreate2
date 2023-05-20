@@ -7,16 +7,13 @@ using System.IO;
 public class DialogText : MonoBehaviour
 {
     public static List<DialogTextRepository> dialogTextRepository=new List<DialogTextRepository>();
-    private static Dictionary<string, float> ResultConfig_1 = new Dictionary<string, float>();
-    private static Dictionary<string, float> ResultConfig_2 = new Dictionary<string, float>();
-    private static Dictionary<string, float> ResultConfig_3 = new Dictionary<string, float>();
-
+    public static Dictionary<string, float> ResultConfig_1 = new Dictionary<string, float>();
+    public static Dictionary<string, float> ResultConfig_2 = new Dictionary<string, float>();
+    public static Dictionary<string, float> ResultConfig_3 = new Dictionary<string, float>();
     
     private readonly List<string> _textPath = new List<string>(){
         "/DialogInfo/1-1Text.json",
         "/DialogInfo/1-2Text.json",
-        "/DialogInfo/1-3Text.json",
-        "/DialogInfo/1-4Text.json"
     };
     private readonly List<string> _dictionaryPath = new List<string>()
     {
@@ -45,37 +42,7 @@ public class DialogText : MonoBehaviour
         }
         else
         {
-            Debug.Log("this is config 3");
             return ResultConfig_3;
-        }
-    }
-    public static int GetAnswerIndex(string answer,int configIndex)
-    {
-        if(configIndex==1)
-        {
-            if(answer=="Good")
-                return 0;
-            else if(answer=="Normal")
-                return 4;
-            else if(answer=="Bad")
-                return 8;
-            else
-            {
-                Debug.LogError("Error answer");
-                return -1;
-            }
-        }
-        else if(configIndex==2)
-        {
-            //TODO: paragraph 2
-                Debug.LogError("answer is not A B C D");
-                return -1;
-        }
-        else
-        {
-            //TODO: paragraph 3
-            Debug.LogError("Have not config this paragraph");
-            return -1;
         }
     }
 }
