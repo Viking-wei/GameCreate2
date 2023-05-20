@@ -129,7 +129,7 @@ public class CharaController : MonoBehaviour
             {
                 ClosePrompt?.Invoke();
 
-                playerInput.SwitchCurrentActionMap("Dialog");
+                // playerInput.SwitchCurrentActionMap("Dialog");
 
                 //stop animation when chatting
                 _rigid.velocity = Vector3.zero;

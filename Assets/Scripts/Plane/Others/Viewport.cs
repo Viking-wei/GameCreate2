@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Viewport : Singleton<Viewport>
+public class Viewport : Singleton_2D<Viewport>
 {
     float minX;
     float maxX;
