@@ -14,7 +14,7 @@ public class NewsDirector : MonoBehaviour
     [HideInInspector] public List<Transform> NewsButtonList;
     private bool _isShowNews;
     private NewsList _newsList;
-    private const string Path = "\\DialogInfo\\News.json";
+    private const string Path = "/DialogInfo/News.json";
 
     private void Start()
     {
@@ -41,33 +41,10 @@ public class NewsDirector : MonoBehaviour
         }
     }
 
-    #region 没想好怎么写，先随便乱写的
-    public void ShowNewsContent0()
+    public void ShowNewsContent(int index)
     {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[0].NewsBody;
+        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[index].NewsBody;
     }
-    public void ShowNewsContent1()
-    {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[1].NewsBody;
-    }
-
-    public void ShowNewsContent2()
-    {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[2].NewsBody;
-    }
-    public void ShowNewsContent3()
-    {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[3].NewsBody;
-    }
-    public void ShowNewsContent4()
-    {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[4].NewsBody;
-    }
-    public void ShowNewsContent5()
-    {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[5].NewsBody;
-    }
-    #endregion
 
     private string ReadJson()
     {
