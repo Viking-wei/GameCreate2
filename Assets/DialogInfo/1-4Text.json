@@ -1,0 +1,151 @@
+{
+    "Data": [
+        {
+            "ID": "0",
+            "Name": "克里斯",
+            "Content": "先生……",
+            "JumpID": "1",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "1",
+            "Name": "大卫",
+            "Content": "真没想到，居然还有这种机会。",
+            "JumpID": "2",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "2",
+            "Name": "克里斯",
+            "Content": "您觉得这位女记者可以信任吗？",
+            "JumpID": "3",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "3",
+            "Name": "大卫",
+            "Content": "她的自尊不允许她做出卑鄙的行为。",
+            "JumpID": "4",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "4",
+            "Name": "克里斯",
+            "Content": "很少见您如此信任一个人。",
+            "JumpID": "5",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "5",
+            "Name": "大卫",
+            "Content": "我需要抓住机会。九年前的那个案子，我没有想到还有机会能够找出当时的真相。",
+            "JumpID": "6",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "6",
+            "Name": "克里斯",
+            "Content": "但是她说的……",
+            "JumpID": "7",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "7",
+            "Name": "大卫",
+            "Content": "是的。她的推理很令人信服，而且确实有道理。",
+            "JumpID": "8",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "8",
+            "Name": "克里斯",
+            "Content": "您不怕到时候会暴露身份吗？",
+            "JumpID": "9",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "9",
+            "Name": "大卫",
+            "Content": "我确信她不会对我怎么样。她只对真相感兴趣。最多会埋怨我为什么要骗她吧。",
+            "JumpID": "10",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "10",
+            "Name": "克里斯",
+            "Content": "看起来您很兴奋。",
+            "JumpID": "11",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "11",
+            "Name": "大卫",
+            "Content": "不兴奋是不可能的。有机会找出哈洛特女士的去向和事件的真相，我等这一刻已经太久了。",
+            "JumpID": "12",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "12",
+            "Name": "克里斯",
+            "Content": "那到时候您要怎么办？",
+            "JumpID": "13",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "13",
+            "Name": "大卫",
+            "Content": "先去银行那边看看吧。说不定能找出一些线索。而且，她给了我这个。",
+            "JumpID": "14",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "14",
+            "Name": "克里斯",
+            "Content": "这是……街区监控系统的密钥？",
+            "JumpID": "15",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "15",
+            "Name": "大卫",
+            "Content": "有了这个，你应该能够施展身手了吧。",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "16",
+            "Name": "克里斯",
+            "Content": "我尽量，先生。",
+            "JumpID": "17",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "17",
+            "Name": "大卫",
+            "Content": "只能死马当活马医了。就算失败，也只是下地狱罢了。",
+            "JumpID": "18",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "18",
+            "Name": "克里斯",
+            "Content": "这是您的执念吗？",
+            "JumpID": "19",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "19",
+            "Name": "大卫",
+            "Content": "这是我的夙愿。",
+            "JumpID": "20",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "20",
+            "Name": "克里斯",
+            "Content": "……我明白了，尼古拉先生。",
+            "JumpID": "-2",
+            "ExtendInfo": "0"
+        }
+    ]
+}

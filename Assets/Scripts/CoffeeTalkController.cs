@@ -23,6 +23,8 @@ public class CoffeeTalkController : MonoBehaviour
     public PlayerInput playerInput;
     [Header("Coffee Result")]
     public CoffeeMakerController coffeeMakerController;
+    [Header("Transition")]
+    public GameObject transition;
 
     const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
@@ -33,14 +35,15 @@ public class CoffeeTalkController : MonoBehaviour
     private Vector3 _playerDialogPoint;
     private Vector3 _npcDialogPoint;
     private string _currentDialogText;
+    private int _currentAct=0;
 
     private void Start()
     {
-        
-        coffeeMakerController.CoffeeResultDelegate+=ProcessCoffeeResult;
-        
+
+        coffeeMakerController.CoffeeResultDelegate += ProcessCoffeeResult;
+
         //FIXME: This is a temporary solution to add dialog data
-        _dialogTextRepository = DialogText.dialogTextRepository[0];
+        _dialogTextRepository = DialogText.dialogTextRepository[_currentAct];
     }
 
     public void Click(InputAction.CallbackContext context)
@@ -72,10 +75,6 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void NextDialog()
     {
-        if ((_currentID - 1) > 0)
-        {
-            ProcessExtendInfo(_dialogTextRepository.Data[_currentID - 1].ExtendInfo);
-        }
 
         FillRequisiteText();
 
@@ -84,7 +83,6 @@ public class CoffeeTalkController : MonoBehaviour
         dialogBackground.gameObject.SetActive(true);
 
         StartCoroutine(ShowWordSlow(_currentDialogText));
-
     }
 
     // private void ProcessBranches()
@@ -132,6 +130,15 @@ public class CoffeeTalkController : MonoBehaviour
         }
 
         MopUp();
+        ProcessExtendInfo(_dialogTextRepository.Data[_currentID].ExtendInfo);
+    }
+
+    private IEnumerator SetTransition()
+    {
+        transition.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        transition.SetActive(false);
+        StartDialog();
     }
 
     private void ShowWordImmediately(string content)
@@ -142,6 +149,7 @@ public class CoffeeTalkController : MonoBehaviour
         dialogText.text = content;
 
         MopUp();
+        ProcessExtendInfo(_dialogTextRepository.Data[_currentID].ExtendInfo);
     }
 
     private void InitialDialogData(Vector3 playerDialogPoint, Vector3 npcDialogPoint)
@@ -173,7 +181,17 @@ public class CoffeeTalkController : MonoBehaviour
     {
         var jID = _dialogTextRepository.Data[_currentID].JumpID;
         if (jID == -1)
+        {
             _endDialog = true;
+            StartCoroutine(SetTransition());
+            jID=0;
+            _dialogTextRepository = DialogText.dialogTextRepository[++_currentAct];
+        }
+        else if (jID == -2)
+        {
+            _endDialog = true;
+            GameManager.Instance.ExitToNight();
+        }
         else
             _currentID = jID;
 
@@ -190,17 +208,16 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void ProcessCoffeeResult(CoffeeResult coffeeResult)
     {
-        //FIXME: This is a temporary solution to add dialog data
         switch (coffeeResult)
         {
             case CoffeeResult.Good:
-                _currentID = _dialogTextRepository.Data[_currentID].JumpID;
+                _currentID = DialogText.GetAnswerIndex("Good", GameManager.Paragraph);
                 break;
             case CoffeeResult.Bad:
-                _currentID = _dialogTextRepository.Data[_currentID].JumpID + 1;
+                _currentID = DialogText.GetAnswerIndex("Bad", GameManager.Paragraph);
                 break;
             case CoffeeResult.Normal:
-                _currentID = _dialogTextRepository.Data[_currentID].JumpID + 2;
+                _currentID = DialogText.GetAnswerIndex("Normal", GameManager.Paragraph);
                 break;
             default:
                 Debug.LogWarning($"CoffeeResult error of {_currentID} ");
@@ -211,23 +228,23 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void ProcessExtendInfo(int extendInfo)
     {   //解锁线索
-        if(Convert.ToBoolean(extendInfo&1))
+        if (Convert.ToBoolean(extendInfo & 1))
         {
             Debug.Log("解锁线索");
         }
         //解锁文件
-        if(Convert.ToBoolean(extendInfo&2))
+        if (Convert.ToBoolean(extendInfo & 2))
         {
             Debug.Log("解锁文件");
         }
         //制作咖啡
-        if(Convert.ToBoolean(extendInfo&4))
+        if (Convert.ToBoolean(extendInfo & 4))
         {
             playerInput.SwitchCurrentActionMap("Play");
             coffeeMakerController.playableDirector.Play();
         }
         //分支对话
-        if(Convert.ToBoolean(extendInfo&8))
+        if (Convert.ToBoolean(extendInfo & 8))
         {
             Debug.Log("分支对话");
         }
