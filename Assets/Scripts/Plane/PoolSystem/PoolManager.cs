@@ -5,18 +5,26 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    [SerializeField] Pool[] enemyPools;
     [SerializeField] Pool[] playerProjectilePools;
-
+    [SerializeField] Pool[] enemyProjectilePools;
+    [SerializeField] Pool[] vFXPools;
     static Dictionary<GameObject, Pool> dictionary;
-    private void Start()
+    private void Awake()
     {
         dictionary = new Dictionary<GameObject, Pool>();
+        Initialize(enemyPools);
         Initialize(playerProjectilePools);
+        Initialize(enemyProjectilePools);
+        Initialize(vFXPools);
     }
 #if UNITY_EDITOR
     private void OnDestroy()
     {
+        CheakPoolSize(enemyPools);
         CheakPoolSize(playerProjectilePools);
+        CheakPoolSize(enemyProjectilePools);
+        CheakPoolSize(vFXPools);
     }
 #endif
     void CheakPoolSize(Pool[]pools)
@@ -79,7 +87,7 @@ public class PoolManager : MonoBehaviour
             return null;
         }
 #endif
-        return dictionary[prefab].PreparedObject(position,rotation);
+        return dictionary[prefab].PreparedObject(position, rotation);
     }
     public static GameObject Release(GameObject prefab, Vector3 position, Quaternion rotation,Vector3 localScale)
     {
