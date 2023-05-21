@@ -1,0 +1,194 @@
+{
+    "Data":
+    [
+        {
+            "ID": "0",
+            "Name": "大卫",
+            "Content": "这段数据很难解密吗？",
+            "JumpID": "1",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "1",
+            "Name": "克里斯",
+            "Content": "其实也不难……但是里面缺失和损坏的部分太多了。完全修复是基本不可能的，只能通过尚且完好的部分去间接修补了。",
+            "JumpID": "2",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "2",
+            "Name": "大卫",
+            "Content": "毕竟过去这么久了……",
+            "JumpID": "3",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "3",
+            "Name": "克里斯",
+            "Content": "差不多好了，先生。您可以看看。",
+            "JumpID": "4",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "4",
+            "Name": "大卫",
+            "Content": "……",
+            "JumpID": "5",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "5",
+            "Name": "克里斯",
+            "Content": "怎么样，先生，有什么收获吗？",
+            "JumpID": "6",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "6",
+            "Name": "大卫",
+            "Content": "不对。",
+            "JumpID": "7",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "7",
+            "Name": "克里斯",
+            "Content": "什么？",
+            "JumpID": "8",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "8",
+            "Name": "大卫",
+            "Content": "为什么……录像里面没有我们两个？是修复的过程中出现问题了吗？",
+            "JumpID": "9",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "9",
+            "Name": "克里斯",
+            "Content": "这是银行的录像吗？",
+            "JumpID": "10",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "10",
+            "Name": "大卫",
+            "Content": "嗯，这是案发时候的内部监控录像。它刚好记录了炸弹爆炸时的情况。",
+            "JumpID": "11",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "11",
+            "Name": "克里斯",
+            "Content": "我的修复应该是不会出现问题的。即使只有一帧的画面出现了你们，那么整体的修复肯定会考虑进去的。",
+            "JumpID": "12",
+            "ExtendInfo": "8"
+        },
+        {
+            "ID": "12",
+            "Name": "大卫",
+            "Content": "你是说我们两个全都死了？",
+            "JumpID": "13",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "13",
+            "Name": "克里斯",
+            "Content": "或者说，你们的“死亡地点”并不在银行里。",
+            "JumpID": "14",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "14",
+            "Name": "大卫",
+            "Content": "你在开玩笑吗？",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "15",
+            "Name": "大卫",
+            "Content": "你是说我们两个根本就没有在那里？",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "16",
+            "Name": "克里斯",
+            "Content": "您的记忆未必是可靠的，先生。可能你是在外面被波及的。",
+            "JumpID": "17",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "17",
+            "Name": "大卫",
+            "Content": "不……虽然我也记不太清当时的情况了，但是如果我当时真的倒在外面的话，为什么没有媒体报道？为什么我会昏迷这么久？",
+            "JumpID": "18",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "18",
+            "Name": "克里斯",
+            "Content": "但是事实就是如此，先生。而且除了您，丽莎女士也不在，这和那个记者的推断是一致的。",
+            "JumpID": "19",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "19",
+            "Name": "大卫",
+            "Content": "不论如何，我对这段录像的真实性仍然保持质疑。",
+            "JumpID": "20",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "20",
+            "Name": "克里斯",
+            "Content": "这是您的坚持。另外，监控录像里确实也没有看到任何像是凶手的人。",
+            "JumpID": "21",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "21",
+            "Name": "大卫",
+            "Content": "事到如今，也只能去问唯一可能的知情人了。",
+            "JumpID": "22",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "22",
+            "Name": "克里斯",
+            "Content": "什么意思？",
+            "JumpID": "23",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "23",
+            "Name": "大卫",
+            "Content": "如果丽莎小姐确实没有遇害，她肯定像我一样，改名换姓，还活在别的地方。",
+            "JumpID": "24",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "24",
+            "Name": "克里斯",
+            "Content": "但是这么多年了，她为什么一点消息都没有？",
+            "JumpID": "25",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "25",
+            "Name": "大卫",
+            "Content": "如果是上面的命令，我觉得完全有可能。",
+            "JumpID": "26",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "26",
+            "Name": "克里斯",
+            "Content": "先生，我……不好意思，有人来了。",
+            "JumpID": "-1",
+            "ExtendInfo": "3"
+        }
+    ]
+}

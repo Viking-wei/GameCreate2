@@ -1,0 +1,411 @@
+{
+    "Data":
+    [
+        {
+            "ID": "0",
+            "Name": "尤利娅",
+            "Content": "好久不见，列别捷夫。",
+            "JumpID": "1",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "1",
+            "Name": "大卫",
+            "Content": "这真是……好像在和我开玩笑一样。",
+            "JumpID": "2",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "2",
+            "Name": "尤利娅",
+            "Content": "你是什么意思？",
+            "JumpID": "3",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "3",
+            "Name": "大卫",
+            "Content": "不……我只是没想到还能再见到你。",
+            "JumpID": "4",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "4",
+            "Name": "尤利娅",
+            "Content": "我是来见你最后一面的。",
+            "JumpID": "5",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "5",
+            "Name": "大卫",
+            "Content": "你又是什么意思？",
+            "JumpID": "6",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "6",
+            "Name": "尤利娅",
+            "Content": "我只是要辞职了而已。",
+            "JumpID": "7",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "7",
+            "Name": "大卫",
+            "Content": "辞职？从白船公司？为什么？",
+            "JumpID": "8",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "8",
+            "Name": "尤利娅",
+            "Content": "现在已经没有什么我能做的事情了。",
+            "JumpID": "9",
+            "ExtendInfo": "8"
+        },
+        {
+            "ID": "9",
+            "Name": "大卫",
+            "Content": "对不起，我不知道你被开除了。",
+            "JumpID": "10",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "10",
+            "Name": "尤利娅",
+            "Content": "我是自己辞职的。",
+            "JumpID": "11",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "11",
+            "Name": "大卫",
+            "Content": "没事，我能理解。每个人都会有自己力所不逮的事情的。",
+            "JumpID": "12",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "12",
+            "Name": "尤利娅",
+            "Content": "你也有吗？",
+            "JumpID": "13",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "13",
+            "Name": "大卫",
+            "Content": "当然，比如喝酒。",
+            "JumpID": "14",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "14",
+            "Name": "尤利娅",
+            "Content": "好吧……不过我是自己辞职的。只是单纯觉得没意思了而已。",
+            "JumpID": "15",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "15",
+            "Name": "大卫",
+            "Content": "我能理解。毕竟我也稍微了解了一下你们在做的事情。",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "16",
+            "Name": "尤利娅",
+            "Content": "那么，你应该有很多东西想要问我吧。",
+            "JumpID": "27",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "17",
+            "Name": "大卫",
+            "Content": "不过我倒是听说，你们的东西还得一个星期才会公布。",
+            "JumpID": "18",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "18",
+            "Name": "尤利娅",
+            "Content": "你消息还挺灵通的。",
+            "JumpID": "19",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "19",
+            "Name": "大卫",
+            "Content": "也仅限于此了。",
+            "JumpID": "20",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "20",
+            "Name": "尤利娅",
+            "Content": "不论如何，我已经没有介入后续工作的余地了。",
+            "JumpID": "21",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "21",
+            "Name": "大卫",
+            "Content": "你们公司连项目经理都不需要了？",
+            "JumpID": "22",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "22",
+            "Name": "尤利娅",
+            "Content": "瓦尔德会亲自把控。不过辞职倒是我自己提出来的。",
+            "JumpID": "23",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "23",
+            "Name": "大卫",
+            "Content": "他会让你自行离开？带着这么多的机密？",
+            "JumpID": "24",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "24",
+            "Name": "尤利娅",
+            "Content": "他的原话是，现在什么都改变不了了。",
+            "JumpID": "25",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "25",
+            "Name": "大卫",
+            "Content": "……我愈发好奇你们在做的东西是什么了。",
+            "JumpID": "26",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "26",
+            "Name": "尤利娅",
+            "Content": "别和我说这些。你肯定已经知道了。",
+            "JumpID": "27",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "27",
+            "Name": "大卫",
+            "Content": "也就是听到过一些传言，不过，我还是对具体的细节更感兴趣。",
+            "JumpID": "28",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "28",
+            "Name": "尤利娅",
+            "Content": "你觉得我会告诉你我们公司的机密吗？",
+            "JumpID": "29",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "29",
+            "Name": "大卫",
+            "Content": "反正我也改变不了什么了，不是吗？",
+            "JumpID": "30",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "30",
+            "Name": "尤利娅",
+            "Content": "你还是这么油嘴滑舌。",
+            "JumpID": "31",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "31",
+            "Name": "大卫",
+            "Content": "没办法，这是职业习惯。",
+            "JumpID": "32",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "32",
+            "Name": "尤利娅",
+            "Content": "嘛，无所谓了，反正我以后和白船公司再无瓜葛了。",
+            "JumpID": "33",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "33",
+            "Name": "大卫",
+            "Content": "难以想象你会放弃这么好的前途。",
+            "JumpID": "34",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "34",
+            "Name": "尤利娅",
+            "Content": "因人而异吧。至少，我喜欢的是挑战而不是钱。",
+            "JumpID": "35",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "35",
+            "Name": "大卫",
+            "Content": "你打算去别的公司工作吗？",
+            "JumpID": "36",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "36",
+            "Name": "尤利娅",
+            "Content": "不……公司这东西，我感觉都差不多。我更想去环游世界。",
+            "JumpID": "37",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "37",
+            "Name": "大卫",
+            "Content": "也算是一种挑战。",
+            "JumpID": "38",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "38",
+            "Name": "尤利娅",
+            "Content": "不完全是。但是我会尽量使其成为一种挑战。",
+            "JumpID": "39",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "39",
+            "Name": "大卫",
+            "Content": "听起来你很适合做我的工作。",
+            "JumpID": "40",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "40",
+            "Name": "尤利娅",
+            "Content": "那不行。我可干不来这种随时会送命的工作。",
+            "JumpID": "41",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "41",
+            "Name": "大卫",
+            "Content": "送命也未尝不是好事。",
+            "JumpID": "42",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "42",
+            "Name": "尤利娅",
+            "Content": "没有意义的死法不在我的人生规划里。",
+            "JumpID": "43",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "43",
+            "Name": "大卫",
+            "Content": "那最好了。",
+            "JumpID": "44",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "44",
+            "Name": "尤利娅",
+            "Content": "如果我是你，我早就跑了。阵营没有那么重要。",
+            "JumpID": "45",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "45",
+            "Name": "大卫",
+            "Content": "是不重要，但是是他们给了我第二次生命。",
+            "JumpID": "46",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "46",
+            "Name": "尤利娅",
+            "Content": "真的是他们给的吗？",
+            "JumpID": "47",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "47",
+            "Name": "大卫",
+            "Content": "……我没有理由怀疑他们。",
+            "JumpID": "48",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "48",
+            "Name": "尤利娅",
+            "Content": "听着，我知道你一直在调查当年的事情。我暗中也查了一些东西出来。",
+            "JumpID": "49",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "49",
+            "Name": "大卫",
+            "Content": "所以……",
+            "JumpID": "50",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "50",
+            "Name": "尤利娅",
+            "Content": "我能查到的东西很有限，但是你应该会感兴趣。而且，足够能证明你们的组织并不是什么好东西。",
+            "JumpID": "51",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "51",
+            "Name": "大卫",
+            "Content": "很多人都这么说。",
+            "JumpID": "52",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "52",
+            "Name": "尤利娅",
+            "Content": "你听了之后会改观的。不过在此之前，给我泡最后一杯咖啡吧。",
+            "JumpID": "53",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "53",
+            "Name": "大卫",
+            "Content": "也是。我都忘了我是干什么的了。",
+            "JumpID": "54",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "54",
+            "Name": "尤利娅",
+            "Content": "看起来你很喜欢这个工作。",
+            "JumpID": "55",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "55",
+            "Name": "大卫",
+            "Content": "和你一样。",
+            "JumpID": "56",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "56",
+            "Name": "尤利娅",
+            "Content": "那我希望你还记得我喜欢什么。",
+            "JumpID": "57",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "57",
+            "Name": "大卫",
+            "Content": "当然。",
+            "JumpID": "-1",
+            "ExtendInfo": "7"
+        }
+    ]
+}
