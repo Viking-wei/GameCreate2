@@ -45,6 +45,10 @@ public class EnemyManager : Singleton_2D<EnemyManager>
             yield return waitTimeBetweenSpawns;
         }
         wavenumber++;
+        if(wavenumber>=7)
+        {
+            GameManager.Instance.ExitToNight();
+        }
     }
     public void RemoveFromList(GameObject enemy)=>enemyList.Remove(enemy);
 }
