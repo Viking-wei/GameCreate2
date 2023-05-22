@@ -16,7 +16,13 @@ public class DialogText : MonoBehaviour
         "/DialogInfo/1-1Text.json",
         "/DialogInfo/1-2Text.json",
         "/DialogInfo/1-3Text.json",
-        "/DialogInfo/1-4Text.json"
+        "/DialogInfo/1-4Text.json",
+        "/DialogInfo/2-1Text.json",
+        "/DialogInfo/2-2Text.json",
+        "/DialogInfo/2-3Text.json",
+        "/DialogInfo/2-4Text.json",
+        "/DialogInfo/2-5Text.json",
+        "/DialogInfo/2-6Text.json"
     };
     private readonly List<string> _dictionaryPath = new List<string>()
     {
