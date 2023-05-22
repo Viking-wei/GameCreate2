@@ -1,0 +1,376 @@
+{
+    "Data":
+    [
+        {
+            "ID": "0",
+            "Name": "大卫",
+            "Content": "早上好。要来杯咖啡吗？",
+            "JumpID": "1",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "1",
+            "Name": "黑衣人",
+            "Content": "不用了。",
+            "JumpID": "2",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "2",
+            "Name": "大卫",
+            "Content": "随便你吧……组织又有什么吩咐吗？",
+            "JumpID": "3",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "3",
+            "Name": "黑衣人",
+            "Content": "先暂停你所有的其他任务。你目前的首要任务是，杀死安德森·洛伊德博士。",
+            "JumpID": "4",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "4",
+            "Name": "大卫",
+            "Content": "是白船公司的那个，安德森博士？",
+            "JumpID": "5",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "5",
+            "Name": "黑衣人",
+            "Content": "对。他表面上被白船公司开除，实际上还在暗地中进行研究。",
+            "JumpID": "6",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "6",
+            "Name": "大卫",
+            "Content": "研究什么？永生？",
+            "JumpID": "7",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "7",
+            "Name": "黑衣人",
+            "Content": "有关于极权主义政权的相关技术。当然，这和你无关。",
+            "JumpID": "8",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "8",
+            "Name": "大卫",
+            "Content": "不……我总得知道一些他的详细信息吧？",
+            "JumpID": "9",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "9",
+            "Name": "黑衣人",
+            "Content": "很遗憾，自从他进入白船公司之后，他的相关资料几乎没有外泄。",
+            "JumpID": "10",
+            "ExtendInfo": "8"
+        },
+        {
+            "ID": "10",
+            "Name": "大卫",
+            "Content": "我明白了。",
+            "JumpID": "15",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "11",
+            "Name": "大卫",
+            "Content": "那为什么我要去暗杀他？你们是觉得他偷窃了我们研究成果吗？",
+            "JumpID": "12",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "12",
+            "Name": "黑衣人",
+            "Content": "这和你无关。那个记者和你说的东西你也不要太在意了。",
+            "JumpID": "13",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "13",
+            "Name": "黑衣人",
+            "Content": "组织这边有自己的打算，如果真的有必要我们自然会通知你。",
+            "JumpID": "14",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "14",
+            "Name": "大卫",
+            "Content": "……知道了。",
+            "JumpID": "15",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "15",
+            "Name": "黑衣人",
+            "Content": "当然，介于对方的级别，我们会给你提供必要的援助。",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "16",
+            "Name": "大卫",
+            "Content": "你们这么好心？",
+            "JumpID": "17",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "17",
+            "Name": "黑衣人",
+            "Content": "拿着。",
+            "JumpID": "18",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "18",
+            "Name": "大卫",
+            "Content": "一把手枪？",
+            "JumpID": "19",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "19",
+            "Name": "黑衣人",
+            "Content": "一把特制的手枪。可以屏蔽自动武器搜查。",
+            "JumpID": "20",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "20",
+            "Name": "黑衣人",
+            "Content": "里面的子弹也是特制的，我们加入了生物电干扰技术，不管射到哪里，即使对方拥有义肢，也能保证一击毙命。",
+            "JumpID": "21",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "21",
+            "Name": "大卫",
+            "Content": "……就是让我送死的同时把他带走？",
+            "JumpID": "22",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "22",
+            "Name": "黑衣人",
+            "Content": "组织从来不会要求你们送死。",
+            "JumpID": "23",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "23",
+            "Name": "大卫",
+            "Content": "好，好。时限是多久？",
+            "JumpID": "24",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "24",
+            "Name": "黑衣人",
+            "Content": "一个星期。",
+            "JumpID": "25",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "25",
+            "Name": "大卫",
+            "Content": "你知道你在说什么鬼话吗？",
+            "JumpID": "26",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "26",
+            "Name": "黑衣人",
+            "Content": "一个星期之后，他们的研究成果就要正式公布了。在此之前，要把安德森博士杀死。这就是组织的任务。",
+            "JumpID": "27",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "27",
+            "Name": "大卫",
+            "Content": "我还得从零开始制定暗杀计划。",
+            "JumpID": "28",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "28",
+            "Name": "黑衣人",
+            "Content": "这不是我们给你下的时限。",
+            "JumpID": "29",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "29",
+            "Name": "大卫",
+            "Content": "……唉，我明白了。",
+            "JumpID": "30",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "30",
+            "Name": "黑衣人",
+            "Content": "当然，这段时间我们也会放松对你的监视。",
+            "JumpID": "31",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "31",
+            "Name": "大卫",
+            "Content": "什么？",
+            "JumpID": "32",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "32",
+            "Name": "黑衣人",
+            "Content": "我们希望你能够完成任务，不择手段。",
+            "JumpID": "33",
+            "ExtendInfo": "8"
+        },
+        {
+            "ID": "33",
+            "Name": "大卫",
+            "Content": "我明白了。",
+            "JumpID": "35",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "34",
+            "Name": "大卫",
+            "Content": "……我尽量。不过，我还有个问题。",
+            "JumpID": "35",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "35",
+            "Name": "黑衣人",
+            "Content": "最好快一点。",
+            "JumpID": "36",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "36",
+            "Name": "大卫",
+            "Content": "丽莎·哈洛特是不是还活着。",
+            "JumpID": "37",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "37",
+            "Name": "黑衣人",
+            "Content": "她在那场事故中就死了。",
+            "JumpID": "38",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "38",
+            "Name": "大卫",
+            "Content": "可是我在那里面看到……",
+            "JumpID": "39",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "39",
+            "Name": "黑衣人",
+            "Content": "我不会再重复一遍，她死了。这种事情没有必要瞒着你。",
+            "JumpID": "40",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "40",
+            "Name": "大卫",
+            "Content": "可是……",
+            "JumpID": "41",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "41",
+            "Name": "黑衣人",
+            "Content": "我们很清楚，你仍然对那次事件耿耿于怀。但是不要忘了，你是为什么还能有机会去调查当年的案件。",
+            "JumpID": "42",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "42",
+            "Name": "大卫",
+            "Content": "……",
+            "JumpID": "43",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "43",
+            "Name": "黑衣人",
+            "Content": "下面的话仅代表我自己的观点。",
+            "JumpID": "44",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "44",
+            "Name": "大卫",
+            "Content": "什么？",
+            "JumpID": "45",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "45",
+            "Name": "黑衣人",
+            "Content": "丽莎的身份，即使在组织内部也是机密中的机密。你千万不要在组织的人前面提起她的名字。也不要对她做太多的调查。",
+            "JumpID": "46",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "46",
+            "Name": "大卫",
+            "Content": "……",
+            "JumpID": "47",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "47",
+            "Name": "黑衣人",
+            "Content": "丽莎确确实实已经死了。这是无可置疑的。但是并不是那场事件导致的，只是那场事件后我们和她彻底失联了。",
+            "JumpID": "48",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "48",
+            "Name": "大卫",
+            "Content": "难道……",
+            "JumpID": "49",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "49",
+            "Name": "黑衣人",
+            "Content": "不论你怎么猜测，我只能说这些。而且这不是你要关心的。刺杀安德森博士才是你的首要目标。仅此而已。",
+            "JumpID": "50",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "50",
+            "Name": "大卫",
+            "Content": "没想到你还挺有人情味的。",
+            "JumpID": "51",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "51",
+            "Name": "黑衣人",
+            "Content": "不必和我说这种话。",
+            "JumpID": "52",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "52",
+            "Name": "大卫",
+            "Content": "我明白。",
+            "JumpID": "-1",
+            "ExtendInfo": "1"
+        }
+    ]
+}

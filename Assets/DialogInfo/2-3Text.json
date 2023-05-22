@@ -1,0 +1,173 @@
+{
+    "Data":
+    [
+        {
+            "ID": "0",
+            "Name": "克里斯",
+            "Content": "祝你好运，先生。",
+            "JumpID": "1",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "1",
+            "Name": "大卫",
+            "Content": "你不要说得事不关己似的。你是我的助手，也是组织的一员。",
+            "JumpID": "2",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "2",
+            "Name": "克里斯",
+            "Content": "当然，我会一直辅助您的工作直到您离开人世。",
+            "JumpID": "3",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "3",
+            "Name": "大卫",
+            "Content": "你能用稍微温和一点的词吗？",
+            "JumpID": "4",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "4",
+            "Name": "克里斯",
+            "Content": "什么意思？",
+            "JumpID": "5",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "5",
+            "Name": "大卫",
+            "Content": "算了……但是，你要是被白船公司的人抓住，说不定会被拆开研究。",
+            "JumpID": "6",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "6",
+            "Name": "克里斯",
+            "Content": "无所谓，先生。我就是这么来到克格勃的。",
+            "JumpID": "7",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "7",
+            "Name": "大卫",
+            "Content": "这我倒还是第一次听说。",
+            "JumpID": "8",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "8",
+            "Name": "克里斯",
+            "Content": "我作为人工智能是被美国科学家制造出来的。不过后来被卖给了华约。",
+            "JumpID": "9",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "9",
+            "Name": "大卫",
+            "Content": "难道你对于他们来说只是一个量产型号？",
+            "JumpID": "10",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "10",
+            "Name": "克里斯",
+            "Content": "不……具体的我也不太清楚，但是这次交易好像是私人的。",
+            "JumpID": "11",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "11",
+            "Name": "大卫",
+            "Content": "急着用钱的科学家把自己的发明卖给对家？挺有意思的剧本。",
+            "JumpID": "12",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "12",
+            "Name": "克里斯",
+            "Content": "如果之前的记忆存储数据还没有丢失，也许能够知道当时的事情。",
+            "JumpID": "13",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "13",
+            "Name": "大卫",
+            "Content": "这个以后再说吧。现在我们要烦恼的东西是，如何找到安德森博士。",
+            "JumpID": "14",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "14",
+            "Name": "克里斯",
+            "Content": "如果他没有被实际意义上地开除，那么直接去白船公司的总部大楼应该就能找到他。",
+            "JumpID": "15",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "15",
+            "Name": "大卫",
+            "Content": "说起来倒是简单。",
+            "JumpID": "16",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "16",
+            "Name": "克里斯",
+            "Content": "我记得您在白船公司内部有线人。",
+            "JumpID": "17",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "17",
+            "Name": "大卫",
+            "Content": "那是以前的事情了。现在……我也不确定能不能和她联系上。",
+            "JumpID": "18",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "18",
+            "Name": "克里斯",
+            "Content": "我会帮您搜索的。",
+            "JumpID": "19",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "19",
+            "Name": "大卫",
+            "Content": "你能接上西奥凡尼的网络？",
+            "JumpID": "20",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "20",
+            "Name": "克里斯",
+            "Content": "有了凡妮莎小姐的密钥之后，是的，我可以匿名访问网络。但是想要接触到企业的内网或者政府的数据还是不行。",
+            "JumpID": "21",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "21",
+            "Name": "大卫",
+            "Content": "没事，我也不奢求这么多了。",
+            "JumpID": "22",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "22",
+            "Name": "克里斯",
+            "Content": "那么，合作愉快，先生。希望这次也能一起完成任务。",
+            "JumpID": "23",
+            "ExtendInfo": "0"
+        },
+        {
+            "ID": "23",
+            "Name": "大卫",
+            "Content": "希望吧。",
+            "JumpID": "24",
+            "ExtendInfo": "1"
+        }
+    ]
+}
