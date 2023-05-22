@@ -25,6 +25,8 @@ public class CoffeeTalkController : MonoBehaviour
     public CoffeeMakerController coffeeMakerController;
     [Header("Transition")]
     public GameObject transition;
+    [Header("Selector")]
+    public GameObject[] selector;
 
     const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
@@ -226,6 +228,13 @@ public class CoffeeTalkController : MonoBehaviour
         StartDialog();
     }
 
+    public void SetID(int id)
+    {
+        _currentID = id;
+        selector[GameManager.Paragraph-1].SetActive(false);
+        StartDialog();
+    }
+
     private void ProcessExtendInfo(int extendInfo)
     {   //解锁线索
         if (Convert.ToBoolean(extendInfo & 1))
@@ -242,11 +251,15 @@ public class CoffeeTalkController : MonoBehaviour
         {
             playerInput.SwitchCurrentActionMap("Play");
             coffeeMakerController.playableDirector.Play();
+            dialogBackground.gameObject.SetActive(false);
+            _isInBranches = true;
         }
         //分支对话
         if (Convert.ToBoolean(extendInfo & 8))
         {
-            Debug.Log("分支对话");
+            _isInBranches=true;
+            dialogBackground.gameObject.SetActive(false);
+            selector[GameManager.Paragraph-1].SetActive(true);
         }
     }
 }
