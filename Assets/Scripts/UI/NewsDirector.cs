@@ -10,7 +10,7 @@ using TMPro;
 public class NewsDirector : MonoBehaviour
 {
     public Transform NewsPanel;
-    [HideInInspector] public GameObject NewsContent;
+    public TextMeshProUGUI NewsContent;
     [HideInInspector] public List<Transform> NewsButtonList;
     private bool _isShowNews;
     private NewsList _newsList;
@@ -18,8 +18,8 @@ public class NewsDirector : MonoBehaviour
 
     private void Start()
     {
-        //TODO: read from json
-        string data = ReadJson();
+        //Read from json
+        string data =ReadJsonUlilities.ReadJson(Path);
         _newsList = JsonConvert.DeserializeObject<NewsList>(data);
 
         // foreach(var a in _newsList.NewsData)
@@ -31,10 +31,9 @@ public class NewsDirector : MonoBehaviour
 
         NewsButtonList = new List<Transform>();
 
-        for (int i = 0; i < NewsPanel.childCount; i++)
+        for (int i = 1; i < NewsPanel.childCount; i++)
         {
             NewsButtonList.Add(NewsPanel.GetChild(i));
-
             //FIXME: 修改界限
             if (i > 0 && i < 4)
                 NewsButtonList[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[i-1].NewsTittle;
@@ -44,22 +43,6 @@ public class NewsDirector : MonoBehaviour
     public void ShowNewsContent(int index)
     {
         NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[index].NewsBody;
-    }
-
-    private string ReadJson()
-    {
-        string jsonData;
-        string fileUrl = Application.dataPath + Path;
-
-        using (StreamReader sr = File.OpenText(fileUrl))
-        {
-            //数据保存
-            jsonData = sr.ReadToEnd();
-            sr.Close();
-        }
-
-        // Debug.Log(jsonData);
-        return jsonData;
     }
 
     public void ShowOrCloseNews()

@@ -6,20 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Coffee.unity
+    path: Assets/Scenes/coffee.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Night.unity
-    guid: a22d343efbddbd24b89ee0f6338141a6
+    path: Assets/Scenes/Explore/1/Stage1.unity
+    guid: bdca80bbffbafd44281a30c51292878b
   - enabled: 1
-    path: Assets/Scenes/Air Craft/1-1.unity
-    guid: 766930db93b5e0e45b2f5947287c3a63
+    path: Assets/Scenes/Air Craft/2D1-1.unity
+    guid: e074576fabbbf2841a443055b360994b
   - enabled: 1
-    path: Assets/Scenes/Air Craft/1-2.unity
-    guid: 5581b0ead4e8b4a408efa07ff52952e6
+    path: Assets/Scenes/Air Craft/2D1-2.unity
+    guid: 67b22085b27bb6542a0909210af504ab
   - enabled: 1
-    path: Assets/Scenes/Air Craft/1-3.unity
-    guid: dffdb32127b3d2c4db39c1cbf11251df
+    path: Assets/Scenes/Air Craft/2D1-3.unity
+    guid: 24bc663fde41e3c44b9881af3dad0db4
+  - enabled: 1
+    path: Assets/Scenes/Air Craft/2D1-4.unity
+    guid: 0c81942500b856848bf7bef79f341e04
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 68c5631f04ff634458e3f07e13599339,
       type: 2}

@@ -13,11 +13,10 @@ using Sirenix.Serialization;
 public class GameManager : Singleton<GameManager>, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {
     [HideInInspector]
-    public Vector3 playerPosition=new Vector3(40,1.2f,0);
+    public Vector3 playerPosition=new Vector3(0,1.2f,-11.6f);
     
     private const int COFFEE_SCENE_INDEX = 0;
     private const int NIGHT_SCENE_INDEX = 1;
-    private const int PLANE_SCENE_INDEX = 2;
     private const int NEWS_NUM=10;
 
     public static int Paragraph=0;
@@ -28,8 +27,6 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     public Dictionary<string, DialogStorage> dialogStorageDictionary;
     //NPC名单
     public List<string>nameOfNpc;
-    //好感度字典
-    [HideInInspector]public Dictionary<string, int> _favoriabilityRate;
     //新闻字典（索引作为key）
     [HideInInspector]public bool[] NewsArray;
     //NPC对话索引记录
@@ -38,13 +35,6 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     protected override void Awake() 
     {
         base.Awake();
-
-        //initialize NPC basic favoriabilityRate[0,100]
-        _favoriabilityRate=new Dictionary<string, int>();
-        foreach(string name in nameOfNpc)
-        {
-            _favoriabilityRate.Add(name,50);
-        }
 
         NewsArray=new bool[NEWS_NUM];
 
@@ -70,9 +60,9 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
 
 #region Change Scene APIs
     /// <summary>Enter Plane Scene</summary>
-    public void EnterPlane()
+    public void EnterPlane(int index)
     {
-        StartCoroutine(LoadScene(PLANE_SCENE_INDEX));
+        StartCoroutine(LoadScene(index));
     }
     /// <summary>Enter Coffee Scene</summary>
     public void EnterCoffee()

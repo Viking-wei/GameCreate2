@@ -249,6 +249,9 @@ public class CoffeeTalkController : MonoBehaviour
         //制作咖啡
         if (Convert.ToBoolean(extendInfo & 4))
         {
+            if(_dialogTextRepository.Data[_currentID].JumpID==-1)
+                _dialogTextRepository = DialogText.dialogTextRepository[++_currentAct];
+                
             playerInput.SwitchCurrentActionMap("Play");
             coffeeMakerController.playableDirector.Play();
             dialogBackground.gameObject.SetActive(false);
