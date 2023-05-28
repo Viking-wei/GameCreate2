@@ -24,7 +24,7 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - PlayerProjectile
-  - 
+  - Room
   - 
   - 
   - 
@@ -50,6 +50,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Ground
     uniqueID: 1546560595
+    locked: 0
+  - name: Player
+    uniqueID: 2960795395
+    locked: 0
+  - name: Door
+    uniqueID: 1103988251
+    locked: 0
+  - name: UI
+    uniqueID: 4116704131
     locked: 0

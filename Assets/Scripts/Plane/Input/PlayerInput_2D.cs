@@ -30,9 +30,8 @@ public class PlayerInput_2D : ScriptableObject, InputActions.IGameplayActions
     public void EnableGameplayInput()
     {
         inputActions.Gameplay.Enable();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     public void OnMove(InputAction.CallbackContext context)
     {

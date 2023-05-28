@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using UnityEngine.UIElements;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlanePlayer : Character
@@ -17,9 +20,9 @@ public class PlanePlayer : Character
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] float accelerationTime = 3f;
     [SerializeField] float decelerationTime = 3f;
-    [SerializeField] float moveRotationAngle = 50f;
-    [SerializeField] float paddingX = 0.8f;
-    [SerializeField] float paddingY = 0.22f;
+    //[SerializeField] float moveRotationAngle = 50f;
+    //[SerializeField] float paddingX = 0.8f;
+    //[SerializeField] float paddingY = 0.22f;
     [Header("----FIRE----")]
     [SerializeField] GameObject projectile1;
     [SerializeField] GameObject projectile2;
@@ -31,7 +34,8 @@ public class PlanePlayer : Character
     [SerializeField] float fireInterval=0.2f;
     WaitForSeconds waitForFireInterval;
     WaitForSeconds waitHealthRegenerateTime;
-
+    [SerializeField]private Vector2 mousePos;
+    [SerializeField]private Vector2 direction;
     new Rigidbody2D rigidbody;
 
     Coroutine moveCoroutine;
@@ -47,7 +51,6 @@ public class PlanePlayer : Character
         input.onStopMove += StopMove;
         input.onFire += Fire;
         input.onStopFire += StopFire;
-
     }
 
     private void OnDisable()
@@ -65,9 +68,17 @@ public class PlanePlayer : Character
         waitHealthRegenerateTime = new WaitForSeconds(healthRegenerateTime);
         startsBar_HUD.Initialize(health, maxHealth);
         input.EnableGameplayInput();
-        
     }
-
+    private void Update()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        rotate();
+    }
+    void rotate()
+    {
+        direction = (mousePos - new Vector2(transform.position.x, transform.position.y)).normalized;
+        transform.up=direction;
+    }
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
@@ -103,10 +114,11 @@ public class PlanePlayer : Character
         {
             StopCoroutine(moveCoroutine);
         }
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+        moveCoroutine = StartCoroutine(MoveCoroutine(accelerationTime, moveInput.normalized * moveSpeed
+            )
+        ) ;
         
-        moveCoroutine=StartCoroutine(MoveCoroutine(accelerationTime,moveInput.normalized * moveSpeed, 
-        Quaternion.AngleAxis(moveRotationAngle * moveInput.y, Vector3.right)));
-        StartCoroutine(MovePositionLimitCoroutine());
     }
     void StopMove()
     {
@@ -114,31 +126,22 @@ public class PlanePlayer : Character
         {
             StopCoroutine(moveCoroutine);
         }
-        moveCoroutine=StartCoroutine(MoveCoroutine(decelerationTime, Vector2.zero,Quaternion.identity));
-        StopCoroutine(MovePositionLimitCoroutine());
+        moveCoroutine=StartCoroutine(MoveCoroutine(decelerationTime, Vector2.zero));
+        
     }
 
-    IEnumerator MoveCoroutine(float time,Vector2 moveVelocity,Quaternion moveRotation)
+    IEnumerator MoveCoroutine(float time,Vector2 moveVelocity)
     {
         float t = 0f;
         while(t<1f)
         {
             t += Time.fixedDeltaTime / time;
             rigidbody.velocity=Vector2.Lerp(rigidbody.velocity, moveVelocity,t);
-            transform.rotation=Quaternion.Lerp(transform.rotation,moveRotation,t);
-
             yield return null;
         }
     }
     
-    IEnumerator MovePositionLimitCoroutine()
-    {
-        while(true) 
-        {
-            transform.position = Viewport.Instance.PlayerMoveablePosition(transform.position,paddingX,paddingY);
-            yield return null;
-        }
-    }
+   
     #endregion
     #region FIRE
     void Fire()
@@ -158,16 +161,16 @@ public class PlanePlayer : Character
             switch (weaponPower)
             {
                 case 0:
-                    PoolManager.Release(projectile1,muzzleMiddle.position);
+                    PoolManager.Release(projectile1,muzzleMiddle.position,this.transform.rotation);
                     break;
                 case 1:
-                    PoolManager.Release(projectile1, muzzleTop.position);
-                    PoolManager.Release(projectile1, muzzleBottom.position);
+                    PoolManager.Release(projectile1, muzzleTop.position,this.transform.rotation);
+                    PoolManager.Release(projectile1, muzzleBottom.position, this.transform.rotation);
                     break;
                 case 2:
-                    PoolManager.Release(projectile1, muzzleMiddle.position);
-                    PoolManager.Release(projectile2, muzzleTop.position);
-                    PoolManager.Release(projectile3, muzzleBottom.position);
+                    PoolManager.Release(projectile1, muzzleMiddle.position, this.transform.rotation);
+                    PoolManager.Release(projectile2, muzzleTop.position,this.transform.rotation);
+                    PoolManager.Release(projectile3, muzzleBottom.position, this.transform.rotation);
                     
                     break;
                 default:

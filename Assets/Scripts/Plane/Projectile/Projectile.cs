@@ -31,5 +31,11 @@ public class Projectile : MonoBehaviour
             PoolManager.Release(hitVFX, collision.GetContact(0).point,Quaternion.LookRotation(collision.GetContact(0).normal));
             gameObject.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("Wall")==true)
+        {
+            PoolManager.Release(hitVFX, collision.GetContact(0).point, Quaternion.LookRotation(collision.GetContact(0).normal));
+            gameObject.SetActive(false);
+        }
     }
+
 }

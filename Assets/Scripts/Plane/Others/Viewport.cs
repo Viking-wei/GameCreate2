@@ -36,7 +36,7 @@ public class Viewport : Singleton_2D<Viewport>
     public Vector3 RandomEnemySpawnPosition(float paddingX,float paddingY)
     {
         Vector3 position = Vector3.zero;
-        position.x = maxX+paddingX;
+        position.x = Random.Range(minX + paddingX, maxX - paddingX);
         position.y=Random.Range(minY+paddingY,maxY-paddingY);
 
         return position;
