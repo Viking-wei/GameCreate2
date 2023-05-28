@@ -1614,7 +1614,7 @@ Camera:
     height: 1
   near clip plane: 5
   far clip plane: 30
-  field of view: 32
+  field of view: 31.999996
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5925,7 +5925,7 @@ PrefabInstance:
     - target: {fileID: 8021616562929914043, guid: a2e12226978b5774098991d665ee4383,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2e12226978b5774098991d665ee4383, type: 3}
@@ -6312,9 +6312,6 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
-      Data: 
-    - Name: _favoriabilityRate
-      Entry: 6
       Data: 
     - Name: NpcDialogIndex
       Entry: 6

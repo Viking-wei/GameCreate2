@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dedfce5bdd8a7428c8df1c5f5f31b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetPlaneIndex: 0
+  TargetPlaneIndex: 2
 --- !u!65 &6106948191249720638
 BoxCollider:
   m_ObjectHideFlags: 0

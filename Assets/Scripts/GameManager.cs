@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     
     private const int COFFEE_SCENE_INDEX = 0;
     private const int NIGHT_SCENE_INDEX = 1;
-    private const int NEWS_NUM=10;
+    private const int NEWS_NUM=13;
 
     public static int Paragraph=0;
 
@@ -46,11 +46,6 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     private void FindFadedCanvas(Scene current, Scene next)
     {
         _transitionAnimator=GameObject.Find("ScenesChangeTransition").GetComponent<Animator>();
-
-        if(_transitionAnimator==null)
-        {
-            Debug.LogError("Can't find transition animator");
-        }
 
         if(next.buildIndex==COFFEE_SCENE_INDEX)
         {
