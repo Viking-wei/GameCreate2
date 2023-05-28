@@ -16,7 +16,13 @@ public class DialogText : MonoBehaviour
         "/DialogInfo/1-1Text.json",
         "/DialogInfo/1-2Text.json",
         "/DialogInfo/1-3Text.json",
-        "/DialogInfo/1-4Text.json"
+        "/DialogInfo/1-4Text.json",
+        "/DialogInfo/2-1Text.json",
+        "/DialogInfo/2-2Text.json",
+        "/DialogInfo/2-3Text.json",
+        "/DialogInfo/2-4Text.json",
+        "/DialogInfo/2-5Text.json",
+        "/DialogInfo/2-6Text.json"
     };
     private readonly List<string> _dictionaryPath = new List<string>()
     {
@@ -32,13 +38,17 @@ public class DialogText : MonoBehaviour
         }
 
         ResultConfig_1=JsonConvert.DeserializeObject<Dictionary<string, float>>(ReadJsonUlilities.ReadJson(_dictionaryPath[0]));
+        // foreach (var item in ResultConfig_1)
+        // {
+        //     Debug.Log(item.Key+" "+item.Value);
+        // }
     }
 
     public static Dictionary<string, float> GetResultConfig(int configIndex)
     {
-        if (configIndex==0)
+        if (configIndex==1)
             return ResultConfig_1;
-        else if (configIndex == 1)
+        else if (configIndex == 2)
         {
             Debug.Log("this is config 2");
             return ResultConfig_2;

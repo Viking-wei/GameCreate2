@@ -26,6 +26,7 @@ public class CharaController : MonoBehaviour
     private bool _isOnGround;
     private bool _isAllowChat;
     private bool _isAllowEnterPlane;
+    private int _targetPlaneIndex;
 
     public static Action<Vector3, Vector3, DialogStorage> InvokeChat;
     public static Action<string> ShowPrompt;
@@ -42,7 +43,7 @@ public class CharaController : MonoBehaviour
 
     private void Start() 
     {
-        transform.position = GameManager.Instance.playerPosition;
+        // transform.position = GameManager.Instance.playerPosition;
     }
 
     private void FixedUpdate()
@@ -86,7 +87,7 @@ public class CharaController : MonoBehaviour
         else if (other.CompareTag("EnterPlaneTrigger"))
         {
             _isAllowEnterPlane = true;
-
+            _targetPlaneIndex = other.GetComponent<EnterPlaneSettings>().TargetPlaneIndex;
             ShowPrompt?.Invoke(InvadePrompt);
         }
         else if (other.CompareTag("Collections"))
@@ -128,18 +129,16 @@ public class CharaController : MonoBehaviour
             if (_isAllowChat)
             {
                 ClosePrompt?.Invoke();
-
-                // playerInput.SwitchCurrentActionMap("Dialog");
+                playerInput.SwitchCurrentActionMap("Dialog");
 
                 //stop animation when chatting
                 _rigid.velocity = Vector3.zero;
                 _anim.SetFloat("WLAR", 0);
                 _anim.SetFloat("WFAB", 0);
 
+                //deal with dialog
                 var dsd = GameManager.Instance.dialogStorageDictionary;
-
                 Vector3 dp = _npc.transform.GetChild(0).position;
-
                 if (dsd.ContainsKey(_npc.name))
                     InvokeChat?.Invoke(transform.GetChild(0).position, dp, dsd[_npc.name]);
                 else
@@ -150,9 +149,8 @@ public class CharaController : MonoBehaviour
                 ClosePrompt?.Invoke();
 
                 Debug.Log("Plane");
-                GameManager.Instance.EnterPlane();
+                GameManager.Instance.EnterPlane(_targetPlaneIndex);
             }
-
         }
     }
     private void OnDestroy() 

@@ -15,13 +15,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 1.8
   intensity:
     m_OverrideState: 1
     m_Value: 2.16
   scatter:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.845
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -41,28 +41,6 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-4251380422235196015
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
-  m_EditorClassIdentifier: 
-  active: 1
-  lift:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: -0.020408163}
-  gamma:
-    m_OverrideState: 1
-    m_Value: {x: 0.9888037, y: 0.9861303, z: 1, w: 0.20408162}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.047619253}
 --- !u!114 &-3207041998636044926
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -75,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   postExposure:
     m_OverrideState: 1
     m_Value: 0.4
@@ -106,13 +84,13 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 3
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.448
   response:
-    m_OverrideState: 0
-    m_Value: 0.459
+    m_OverrideState: 1
+    m_Value: 0.632
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -137,34 +115,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.31
+    m_Value: 0.227
   smoothness:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0.773
   rounded:
     m_OverrideState: 1
-    m_Value: 0
---- !u!114 &-1873830389391506672
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
-  m_Name: SplitToning
-  m_EditorClassIdentifier: 
-  active: 1
-  shadows:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  highlights:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  balance:
-    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -185,11 +141,9 @@ MonoBehaviour:
   - {fileID: 6322615539452594193}
   - {fileID: 6193268070544305148}
   - {fileID: -2712174648396567751}
-  - {fileID: -1873830389391506672}
-  - {fileID: -4251380422235196015}
   - {fileID: 5787432123569655535}
-  - {fileID: 2809281333361577572}
---- !u!114 &2809281333361577572
+  - {fileID: 3624275236777413335}
+--- !u!114 &3624275236777413335
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,13 +152,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
-  m_Name: ChromaticAberration
+  m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
+  m_Name: SplitToning
   m_EditorClassIdentifier: 
   active: 1
-  intensity:
+  shadows:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: {r: 0.18600929, g: 0.50291526, b: 0.7169812, a: 1}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {r: 0.5943396, g: 0.42632133, b: 0.2999733, a: 1}
+  balance:
+    m_OverrideState: 1
+    m_Value: -10
 --- !u!114 &5787432123569655535
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -220,7 +180,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
 --- !u!114 &6193268070544305148
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -251,16 +211,16 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 2.65
+    m_Value: 1.86
   aperture:
-    m_OverrideState: 0
-    m_Value: 5.6
+    m_OverrideState: 1
+    m_Value: 3.9
   focalLength:
     m_OverrideState: 1
-    m_Value: 42
+    m_Value: 37
   bladeCount:
-    m_OverrideState: 0
-    m_Value: 5
+    m_OverrideState: 1
+    m_Value: 6
   bladeCurvature:
     m_OverrideState: 0
     m_Value: 1

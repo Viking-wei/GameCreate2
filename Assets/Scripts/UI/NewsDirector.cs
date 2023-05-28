@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -9,17 +8,19 @@ using TMPro;
 
 public class NewsDirector : MonoBehaviour
 {
-    public Transform NewsPanel;
-    [HideInInspector] public GameObject NewsContent;
-    [HideInInspector] public List<Transform> NewsButtonList;
+    [Header("NewsContent Settings")]
+    public Transform newsPanel;
+    public TextMeshProUGUI newsContent;
+    public List<TextMeshProUGUI> newsButtonContentList;
+    
     private bool _isShowNews;
     private NewsList _newsList;
     private const string Path = "/DialogInfo/News.json";
 
     private void Start()
     {
-        //TODO: read from json
-        string data = ReadJson();
+        //Read from json
+        string data =ReadJsonUlilities.ReadJson(Path);
         _newsList = JsonConvert.DeserializeObject<NewsList>(data);
 
         // foreach(var a in _newsList.NewsData)
@@ -29,43 +30,21 @@ public class NewsDirector : MonoBehaviour
         //     Debug.Log(a.NewsBody);
         // }
 
-        NewsButtonList = new List<Transform>();
-
-        for (int i = 0; i < NewsPanel.childCount; i++)
+        for (int i = 0; i < newsButtonContentList.Count; i++)
         {
-            NewsButtonList.Add(NewsPanel.GetChild(i));
-
-            //FIXME: 修改界限
-            if (i > 0 && i < 4)
-                NewsButtonList[i].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[i-1].NewsTittle;
+            newsButtonContentList[i].text = _newsList.NewsData[i].NewsTittle;
         }
     }
 
     public void ShowNewsContent(int index)
     {
-        NewsButtonList[0].GetChild(0).GetComponent<TextMeshProUGUI>().text = _newsList.NewsData[index].NewsBody;
-    }
-
-    private string ReadJson()
-    {
-        string jsonData;
-        string fileUrl = Application.dataPath + Path;
-
-        using (StreamReader sr = File.OpenText(fileUrl))
-        {
-            //数据保存
-            jsonData = sr.ReadToEnd();
-            sr.Close();
-        }
-
-        // Debug.Log(jsonData);
-        return jsonData;
+        newsContent.text = _newsList.NewsData[index].NewsBody;
     }
 
     public void ShowOrCloseNews()
     {
         _isShowNews=!_isShowNews;
-        NewsPanel.gameObject.SetActive(_isShowNews);
+        newsPanel.gameObject.SetActive(_isShowNews);
     }
 
 }
