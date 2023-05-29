@@ -2008,7 +2008,10 @@ MonoBehaviour:
   - prefab: {fileID: 8286738886125635243, guid: 70816e256f65df04d811300a66bcf226,
       type: 3}
     size: 20
-  - prefab: {fileID: 8286738886125635243, guid: 3ffd73cf39f76df41bcd9c5732b47a98,
+  - prefab: {fileID: 8286738886125635243, guid: 0602ce8ecc20ad8488ea637871303393,
+      type: 3}
+    size: 10
+  - prefab: {fileID: 8286738886125635243, guid: c233165506efe0c4a9dbcf4fd884b927,
       type: 3}
     size: 10
   vFXPools:
@@ -2286,6 +2289,7 @@ MonoBehaviour:
   roomNumber: 6
   startColor: {r: 0.3912068, g: 0.9339623, b: 0.54754156, a: 1}
   endColor: {r: 1, g: 0.40943396, b: 0.40943396, a: 1}
+  endDoor: {fileID: 5699947672829506459, guid: 37808efaa7c657e478031c8f638b401d, type: 3}
   generatorPoint: {fileID: 917633820}
   xOffset: 18
   yOffset: 10
@@ -2562,12 +2566,12 @@ PrefabInstance:
     - target: {fileID: 801092110859584826, guid: 3a29d8e58bad6a849a97716e4f875580,
         type: 3}
       propertyPath: weaponPower
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 801092110859584826, guid: 3a29d8e58bad6a849a97716e4f875580,
         type: 3}
       propertyPath: fireInterval
-      value: 0.18
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 801092110859584826, guid: 3a29d8e58bad6a849a97716e4f875580,
         type: 3}
@@ -2668,6 +2672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175537725078101274, guid: 3a29d8e58bad6a849a97716e4f875580,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a29d8e58bad6a849a97716e4f875580, type: 3}

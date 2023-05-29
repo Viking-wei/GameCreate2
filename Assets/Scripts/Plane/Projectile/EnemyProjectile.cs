@@ -6,9 +6,9 @@ public class EnemyProjectile : Projectile
 {
     private void Awake()
     {
-        if(moveDirection!=Vector2.left)
+        if (moveDirection != Vector2.left)
         {
-            transform.rotation=Quaternion.FromToRotation(Vector2.left,moveDirection);
+            transform.rotation = Quaternion.FromToRotation(Vector2.left, moveDirection);
         }
     }
 }

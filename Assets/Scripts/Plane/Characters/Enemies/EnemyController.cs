@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Transform muzzle;
     [SerializeField] float minFireInterval;
     [SerializeField] float maxFireInterval;
+    
     public void Start()
     {
         playerTransform=GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -70,5 +71,6 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+   
     }
 

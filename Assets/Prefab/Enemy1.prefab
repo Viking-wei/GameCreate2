@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2fe86b78d6c964aa7d5eab33c6e231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.65
-  radius: 75
+  moveSpeed: 1.77
+  radius: 81
   projectiles:
   - {fileID: 8286738886125635243, guid: 70816e256f65df04d811300a66bcf226, type: 3}
   muzzle: {fileID: 3467722667694675169}

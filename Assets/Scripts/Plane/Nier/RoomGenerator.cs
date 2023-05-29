@@ -14,6 +14,7 @@ public class RoomGenerator : MonoBehaviour
     public int roomNumber;
     public Color startColor, endColor;
     private GameObject endRoom;
+    public GameObject endDoor;
 
     [Header("Œª÷√øÿ÷∆")]
     public Transform generatorPoint;
@@ -50,6 +51,8 @@ public class RoomGenerator : MonoBehaviour
 
         FindEndRoom();
         endRoom.GetComponent<SpriteRenderer>().color = endColor;
+        //PoolManager.Release(endDoor, DefinedPointInBounds(endRoom.GetComponent<Collider2D>().bounds));
+        Instantiate(endDoor,DefinedPointInBounds(endRoom.GetComponent<Collider2D>().bounds),Quaternion.identity);
     }
 
     //private void Update()
@@ -60,7 +63,14 @@ public class RoomGenerator : MonoBehaviour
     //    }
     //}
 
-
+    public Vector3 DefinedPointInBounds(Bounds bounds)
+    {
+        return new Vector3(
+            (bounds.min.x+3),
+            (bounds.min.y+5),
+            (bounds.min.z)
+        );
+    }
     public void ChangePointPos()
     {
         do

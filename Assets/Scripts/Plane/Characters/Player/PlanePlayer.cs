@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -73,6 +74,13 @@ public class PlanePlayer : Character
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         rotate();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("EndDoor"))
+        {
+            GameManager.Instance.ExitToNight();
+        }
     }
     void rotate()
     {
