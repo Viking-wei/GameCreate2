@@ -4,7 +4,9 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 
-public class DialogText : MonoBehaviour
+namespace UI
+{
+    public class DialogText : MonoBehaviour
 {
     public static List<DialogTextRepository> dialogTextRepository=new List<DialogTextRepository>();
     private static Dictionary<string, float> ResultConfig_1 = new Dictionary<string, float>();
@@ -89,3 +91,5 @@ public class DialogText : MonoBehaviour
         }
     }
 }
+}
+

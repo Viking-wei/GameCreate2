@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+using UI;
 public class CoffeeTalkController : MonoBehaviour
 {
     [Header("Dialog UI")]
@@ -38,6 +39,7 @@ public class CoffeeTalkController : MonoBehaviour
     private Vector3 _npcDialogPoint;
     private string _currentDialogText;
     private int _currentAct=0;
+    private Camera _camera;
 
     private void Start()
     {
@@ -46,6 +48,8 @@ public class CoffeeTalkController : MonoBehaviour
 
         //FIXME: This is a temporary solution to add dialog data
         _dialogTextRepository = DialogText.dialogTextRepository[_currentAct];
+        
+        _camera = Camera.main;
     }
 
     public void Click(InputAction.CallbackContext context)
@@ -159,9 +163,9 @@ public class CoffeeTalkController : MonoBehaviour
         _endDialog = false;
         _isPartEnd = false;
         _isInBranches = false;
-
-        _playerDialogPoint = Camera.main.WorldToScreenPoint(playerDialogPoint);
-        _npcDialogPoint = Camera.main.WorldToScreenPoint(npcDialogPoint);
+        
+        _playerDialogPoint = _camera.WorldToScreenPoint(playerDialogPoint);
+        _npcDialogPoint = _camera.WorldToScreenPoint(npcDialogPoint);
     }
 
     private void FillRequisiteText()

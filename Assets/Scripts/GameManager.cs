@@ -27,16 +27,13 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     public Dictionary<string, DialogStorage> dialogStorageDictionary;
     //NPC名单
     public List<string>nameOfNpc;
-    //新闻字典（索引作为key）
-    [HideInInspector]public bool[] NewsArray;
     //NPC对话索引记录
     [HideInInspector]public Dictionary<string, int> NpcDialogIndex;
+    [HideInInspector]public int newsNum = 0;
 
-    protected override void Awake() 
+    protected override void Awake()
     {
         base.Awake();
-
-        NewsArray=new bool[NEWS_NUM];
 
         NpcDialogIndex=new Dictionary<string, int>();
 
