@@ -8,12 +8,15 @@ namespace UI
     {
         public GameObject mainMenu;
         private Stack<GameObject> _uiHierarchy;
-        public void ShowMenu()
+        public void ProccessEsc()
         {
             mainMenu.SetActive(true);
         }
-        
-        
+
+        public void AddToUIStack(GameObject theGameObject)
+        {
+            _uiHierarchy.Push(theGameObject);
+        }
     }
 }
 
