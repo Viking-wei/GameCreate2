@@ -26,30 +26,15 @@ namespace UI
             //Read from json
             var data =ReadJsonUlilities.ReadJson(Path);
             _newsList = JsonConvert.DeserializeObject<NewsList>(data);
-    
-            // foreach(var a in _newsList.NewsData)
-            // {
-            //     Debug.Log(a.NewsID);
-            //     Debug.Log(a.NewsTittle);
-            //     Debug.Log(a.NewsBody);
-            // }
-    
-            for (int i = 0; i < newsButtonContentList.Count; i++)
+            //Initialize the news list title
+            for (var i = 0; i < newsButtonContentList.Count; i++)
             {
                 newsButtonContentList[i].text = _newsList.NewsData[i].NewsTittle;
             }
-            
+            //Initialize the news content whit null
+            newsContent.text = " ";
         }
-    
-        private void OnEnable()
-        {
-            Debug.Log("this func has been called");
-            for(int i=0;i<GameManager.Instance.newsNum;i++)
-            {
-                newsButtonContentList[i].transform.parent.gameObject.SetActive(true);
-            }
-        }
-    
+        
         private void OnDisable()
         {
             foreach (var a in newsButtonContentList)
@@ -57,6 +42,16 @@ namespace UI
                 a.transform.parent.gameObject.SetActive(false);
             }
             
+        }
+        /// <summary>
+        /// initialize the news list whit the number of news which is saved in GameManager
+        /// </summary>
+        public void InitializedNewsList()
+        {
+            for(var i=0;i<GameManager.Instance.newsNum;i++)
+            {
+                newsButtonContentList[i].transform.parent.gameObject.SetActive(true);
+            }
         }
         
         public void ShowNewsContent(int index)

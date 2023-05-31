@@ -243,7 +243,7 @@ public class CoffeeTalkController : MonoBehaviour
     {   //解锁线索
         if (Convert.ToBoolean(extendInfo & 1))
         {
-            Debug.Log("解锁线索");
+            GameManager.Instance.newsNum++;
         }
         //解锁文件
         if (Convert.ToBoolean(extendInfo & 2))

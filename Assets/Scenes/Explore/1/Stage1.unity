@@ -827,7 +827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &312668007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -894,8 +894,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -1098,7 +1098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &422078162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1165,8 +1165,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -1558,7 +1558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &575224663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1625,8 +1625,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -2631,6 +2631,7 @@ GameObject:
   - component: {fileID: 1106056451}
   - component: {fileID: 1106056453}
   - component: {fileID: 1106056452}
+  - component: {fileID: 1106056455}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2645,7 +2646,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106056450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2653,13 +2654,13 @@ RectTransform:
   - {fileID: 1447150484}
   - {fileID: 856939254}
   - {fileID: 1486509613}
-  m_Father: {fileID: 4821422291727940619}
-  m_RootOrder: 5
+  m_Father: {fileID: 1655952629}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 814.7689, y: 414.5575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1106056452
 MonoBehaviour:
@@ -2699,6 +2700,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106056450}
   m_CullTransparentMesh: 1
+--- !u!114 &1106056455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106056450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b6e3bf5eb25e6468612bdb6e75e09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuController: {fileID: 1655952631}
 --- !u!1 &1142774799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1142774800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2784,8 +2798,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -2852,7 +2866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161289219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2919,8 +2933,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -3697,7 +3711,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447150486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655952631}
+        m_TargetAssemblyTypeName: UI.MainMenuController, Assembly-CSharp
+        m_MethodName: ProcessContinue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1447150486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4073,7 +4099,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1486509615}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4821422291697156828}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1106056450}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1486509615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4221,7 +4271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1603915725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4288,8 +4338,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -4338,6 +4388,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603915724}
   m_CullTransparentMesh: 1
+--- !u!1 &1655952628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655952629}
+  - component: {fileID: 1655952630}
+  - component: {fileID: 1655952631}
+  m_Layer: 5
+  m_Name: MainMenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1655952629
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655952628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1106056451}
+  - {fileID: 4821422291697156829}
+  m_Father: {fileID: 4821422291727940619}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1655952630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655952628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91079047bd88404090259ecb0f44845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newsPanel: {fileID: 4821422291697156829}
+  newsContent: {fileID: 4821422293744846367}
+  newsButtonContentList:
+  - {fileID: 4821422291786367901}
+  - {fileID: 4821422292956425189}
+  - {fileID: 4821422292901818375}
+  - {fileID: 4821422293733173119}
+  - {fileID: 4821422293073955230}
+  - {fileID: 219297548}
+  - {fileID: 1022439893}
+  - {fileID: 390139359}
+  - {fileID: 517586925}
+  - {fileID: 217837193}
+  - {fileID: 148783019}
+  - {fileID: 1210822064}
+  - {fileID: 18183453}
+  - {fileID: 705147983}
+--- !u!114 &1655952631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655952628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12e9d9d36eff6d46bdd1c19f92f4091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1106056450}
 --- !u!1 &1736701893
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736701894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4423,8 +4555,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -4627,7 +4759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1870986544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4694,8 +4826,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -4762,7 +4894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1890801531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4829,8 +4961,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -4911,6 +5043,7 @@ MonoBehaviour:
   playerPosition: {x: 40, y: 1.2, z: 0}
   nameOfNpc: []
   newsNum: 0
+  fileNum: 0
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -5131,28 +5264,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
+        type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4821422291727940623}
+      objectReference: {fileID: 1655952631}
     - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowOrCloseNews
+      value: ProcessEsc
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NewsDirector, Assembly-CSharp
+      value: UI.MainMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789576873377668704, guid: 23c2ceed0743a6f48831ac746bc610ea,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668710, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
@@ -5232,6 +5375,7 @@ GameObject:
   - component: {fileID: 4821422291697156829}
   - component: {fileID: 4821422291697156835}
   - component: {fileID: 4821422291697156834}
+  - component: {fileID: 4821422291697156836}
   m_Layer: 5
   m_Name: NewsPanel
   m_TagString: Untagged
@@ -5246,15 +5390,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821422291697156828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1288240032}
   - {fileID: 1383681209}
-  m_Father: {fileID: 4821422291727940619}
-  m_RootOrder: 6
+  m_Father: {fileID: 1655952629}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5299,6 +5443,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821422291697156828}
   m_CullTransparentMesh: 1
+--- !u!114 &4821422291697156836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821422291697156828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7e9be824ecf554bb94150062189477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuController: {fileID: 1655952631}
+  newsDirector: {fileID: 1655952630}
 --- !u!114 &4821422291727940616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5351,7 +5509,6 @@ GameObject:
   - component: {fileID: 4821422291727940622}
   - component: {fileID: 4821422291727940617}
   - component: {fileID: 4821422291727940616}
-  - component: {fileID: 4821422291727940623}
   - component: {fileID: 4821422291727940620}
   - component: {fileID: 4821422291727940621}
   m_Layer: 5
@@ -5378,8 +5535,7 @@ RectTransform:
   - {fileID: 4821422293339064755}
   - {fileID: 4821422291897669136}
   - {fileID: 4821422293068284205}
-  - {fileID: 1106056451}
-  - {fileID: 4821422291697156829}
+  - {fileID: 1655952629}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5447,35 +5603,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &4821422291727940623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4821422291727940618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91079047bd88404090259ecb0f44845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newsPanel: {fileID: 4821422291697156829}
-  newsContent: {fileID: 4821422293744846367}
-  newsButtonContentList:
-  - {fileID: 4821422291786367901}
-  - {fileID: 4821422292956425189}
-  - {fileID: 4821422292901818375}
-  - {fileID: 4821422293733173119}
-  - {fileID: 4821422293073955230}
-  - {fileID: 219297548}
-  - {fileID: 1022439893}
-  - {fileID: 390139359}
-  - {fileID: 517586925}
-  - {fileID: 217837193}
-  - {fileID: 148783019}
-  - {fileID: 1210822064}
-  - {fileID: 18183453}
-  - {fileID: 705147983}
 --- !u!224 &4821422291786367900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6419,7 +6546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4821422292268836849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6494,8 +6621,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -7594,7 +7721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4821422293329843140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7699,8 +7826,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -7901,7 +8028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4821422293469261289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7976,8 +8103,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -8492,8 +8619,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -8522,7 +8649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4821422293679138970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9032,8 +9159,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4821422291727940623}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
+      - m_Target: {fileID: 1655952630}
+        m_TargetAssemblyTypeName: UI.NewsDirector, Assembly-CSharp
         m_MethodName: ShowNewsContent
         m_Mode: 3
         m_Arguments:
@@ -9062,7 +9189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4821422293775142098
 MonoBehaviour:
   m_ObjectHideFlags: 0
