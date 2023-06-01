@@ -248,7 +248,7 @@ public class CoffeeTalkController : MonoBehaviour
         //解锁文件
         if (Convert.ToBoolean(extendInfo & 2))
         {
-            Debug.Log("解锁文件");
+            GameManager.Instance.fileNum++;
         }
         //制作咖啡
         if (Convert.ToBoolean(extendInfo & 4))

@@ -13,6 +13,7 @@ TagManager:
   - BlackCube
   - Bullet
   - core
+  - Portal
   layers:
   - Default
   - TransparentFX
