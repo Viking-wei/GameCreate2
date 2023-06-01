@@ -13,6 +13,8 @@ TagManager:
   - BlackCube
   - Bullet
   - EndDoor
+  - core
+  - Portal
   layers:
   - Default
   - TransparentFX

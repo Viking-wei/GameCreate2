@@ -5654,7 +5654,7 @@ Transform:
   m_Children:
   - {fileID: 1245759229}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1368389025
 SpriteRenderer:
@@ -5825,7 +5825,7 @@ PrefabInstance:
     - target: {fileID: 625857734875312334, guid: a2e12226978b5774098991d665ee4383,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 625857734875312334, guid: a2e12226978b5774098991d665ee4383,
         type: 3}
@@ -6283,7 +6283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {x: 40, y: 1.2, z: 0}
   nameOfNpc: []
-  NewsArray: 
+  newsNum: 0
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -6329,7 +6329,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694184724
 GameObject:
@@ -6909,7 +6909,7 @@ PrefabInstance:
     - target: {fileID: 1726030533346808843, guid: ebff83bff33be4b43bed9546c9cb4059,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1726030533346808843, guid: ebff83bff33be4b43bed9546c9cb4059,
         type: 3}
@@ -7238,7 +7238,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948502725
 GameObject:
@@ -7726,7 +7726,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102197798
 GameObject:
@@ -8186,7 +8186,7 @@ RectTransform:
   m_Children:
   - {fileID: 4395651668590975844}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
