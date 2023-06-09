@@ -29243,6 +29243,7 @@ MonoBehaviour:
   maxHealth: 100
   showOnHeadHealthBar: 1
   onHeadHealthBar: {fileID: 1257601786396202601}
+  startsBar_HUD: {fileID: 0}
   regenerateHealth: 1
   healthRegenerateTime: 12
   healthRegeneratePercent: 0.02
