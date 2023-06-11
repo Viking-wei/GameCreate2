@@ -703,12 +703,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.267
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3.7
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000053a42e5c03277ab01b86cd4183eb5ff5
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -755,12 +755,12 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightInnerRadius: 2.2
+  m_PointLightOuterRadius: 7.84
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 1.55
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: -0.5, y: -0.5, z: 0}
@@ -775,7 +775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805433158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1985,6 +1985,10 @@ MonoBehaviour:
   enemyPools:
   - prefab: {fileID: 578449712315536124, guid: c09767a80c39dca498c95b2e5be1afd8, type: 3}
     size: 30
+  - prefab: {fileID: 578449712315536124, guid: 97b2b24697455114ba62dda5c68ad4ec, type: 3}
+    size: 15
+  - prefab: {fileID: 578449712315536124, guid: cb05d19d1f9f3ea40a335c12c2c9451d, type: 3}
+    size: 5
   playerProjectilePools:
   - prefab: {fileID: 5756476919849659378, guid: 017dd7c328338344ab4c9ef747235c8f,
       type: 3}
@@ -1996,36 +2000,27 @@ MonoBehaviour:
       type: 3}
     size: 25
   enemyProjectilePools:
-  - prefab: {fileID: 8286738886125635243, guid: 918eadce5f8041b489e08404e6f91c88,
-      type: 3}
-    size: 10
-  - prefab: {fileID: 8286738886125635243, guid: 8d75e7d7133e94f4e984386efc48d1d2,
-      type: 3}
-    size: 10
-  - prefab: {fileID: 8286738886125635243, guid: 1d7622436d4c9df4fb3aa705a88abe1c,
-      type: 3}
-    size: 10
   - prefab: {fileID: 8286738886125635243, guid: 70816e256f65df04d811300a66bcf226,
       type: 3}
-    size: 20
-  - prefab: {fileID: 8286738886125635243, guid: 0602ce8ecc20ad8488ea637871303393,
-      type: 3}
-    size: 10
+    size: 50
   - prefab: {fileID: 8286738886125635243, guid: c233165506efe0c4a9dbcf4fd884b927,
       type: 3}
-    size: 10
+    size: 50
+  - prefab: {fileID: 8286738886125635243, guid: 6f19aa70851b2544d9e8e5f5d88f0cde,
+      type: 3}
+    size: 20
   vFXPools:
   - prefab: {fileID: 2342042931496088306, guid: 97b415311529fa145aacd3eedaac728e,
       type: 3}
     size: 10
   - prefab: {fileID: 4801493125213720806, guid: 94d3dff6247d98e4cb4d8d6f0be5e291,
       type: 3}
-    size: 10
+    size: 150
   - prefab: {fileID: 1587261729604890, guid: 600ec83cba1cec448bf41a6607229741, type: 3}
     size: 1
   - prefab: {fileID: 5060298685065931927, guid: 6775c68a79b34db4fa2fd4db2a4cdf74,
       type: 3}
-    size: 100
+    size: 50
 --- !u!4 &1378303180
 Transform:
   m_ObjectHideFlags: 0

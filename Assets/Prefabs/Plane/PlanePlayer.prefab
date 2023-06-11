@@ -145,7 +145,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -249,8 +249,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 1587261729604890, guid: 600ec83cba1cec448bf41a6607229741, type: 3}
   maxHealth: 100
-  showOnHeadHealthBar: 1
-  onHeadHealthBar: {fileID: 0}
   startsBar_HUD: {fileID: 0}
   regenerateHealth: 1
   healthRegenerateTime: 12
@@ -259,9 +257,6 @@ MonoBehaviour:
   moveSpeed: 10
   accelerationTime: 0.3
   decelerationTime: 0.3
-  moveRotationAngle: 27
-  paddingX: 0.8
-  paddingY: 0.22
   projectile1: {fileID: 5756476919849659378, guid: 017dd7c328338344ab4c9ef747235c8f,
     type: 3}
   projectile2: {fileID: 5756476919849659378, guid: 8396ccf9362c3ac489078d01de194e8c,
@@ -273,3 +268,5 @@ MonoBehaviour:
   muzzleBottom: {fileID: 741132968}
   weaponPower: 2
   fireInterval: 0.12
+  mousePos: {x: 0, y: 0}
+  direction: {x: 0, y: 0}

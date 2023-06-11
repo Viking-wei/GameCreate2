@@ -11,6 +11,8 @@ public class Room : MonoBehaviour
 
     public int stepToStart;
     public GameObject enemyPrefab1;
+    public GameObject enemyPrefab2;
+    public GameObject enemyPrefab3;
     public int doorNumber;
     bool isTriggered=false;
     
@@ -58,10 +60,20 @@ public class Room : MonoBehaviour
             if (!isTriggered&&stepToStart>0)
             {
                 
-                int number = Random.Range(stepToStart+1, (stepToStart*6/5)+1);
-                for (int i = 0; i < number; i++)
+                int number1 = Random.Range(stepToStart+1, (stepToStart*3/2)+1);
+                int number2 = Random.Range((stepToStart * 11 / 12) -1, (stepToStart * 11 / 9) );
+                int number3 = Random.Range((stepToStart*11/19) - 2, (stepToStart * 11 / 13) - 1);
+                for (int i = 0; i < number1; i++)
                 {
                     PoolManager.Release(enemyPrefab1, RandomPointInBounds(GetComponent<Collider2D>().bounds));
+                }
+                for (int i = 0; i < number2; i++)
+                {
+                    PoolManager.Release(enemyPrefab2, RandomPointInBounds(GetComponent<Collider2D>().bounds));
+                }
+                for (int i = 0; i < number3; i++)
+                {
+                    PoolManager.Release(enemyPrefab3, RandomPointInBounds(GetComponent<Collider2D>().bounds));
                 }
             }
             isTriggered = true;
