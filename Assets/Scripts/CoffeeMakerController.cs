@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using Newtonsoft.Json;
 using UnityEngine.Serialization;
-
+using UI;
 public class CoffeeMakerController : MonoBehaviour
 {
     //when coffee is done, this delegate is called
@@ -81,7 +81,7 @@ public class CoffeeMakerController : MonoBehaviour
             Debug.LogError("coffee result is not 3");
             return CoffeeResult.Error;
         }
-
+        
         string coffeeType=coffeeResult[0];
         string coffeeDepth=coffeeResult[1];
         string coffeeTaste=coffeeResult[2];

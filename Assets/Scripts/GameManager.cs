@@ -14,10 +14,27 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
 {
     [HideInInspector]
     public Vector3 playerPosition=new Vector3(0,1.2f,-11.6f);
+
+    public int Attack
+    {
+        get => _attack + parserCodeFragmentNum % 3;
+    }
+
+    public int Health
+    {
+        get => _health + encryptionAlgorithmCodeFragmentNum % 3;
+    }
     
-    private const int COFFEE_SCENE_INDEX = 0;
-    private const int NIGHT_SCENE_INDEX = 1;
-    private const int NEWS_NUM=13;
+    //TODO:need to fix the initial value
+    private readonly int _attack=3;
+    private readonly int _health=3;
+    
+    [HideInInspector]public int parserCodeFragmentNum = 0;
+    [HideInInspector]public int encryptionAlgorithmCodeFragmentNum = 0;
+    
+    private const int CoffeeSceneIndex = 0;
+    private const int NightSceneIndex = 1;
+    private const int NewsNum=13;
 
     public static int Paragraph=0;
 
@@ -27,16 +44,14 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     public Dictionary<string, DialogStorage> dialogStorageDictionary;
     //NPC名单
     public List<string>nameOfNpc;
-    //新闻字典（索引作为key）
-    [HideInInspector]public bool[] NewsArray;
     //NPC对话索引记录
     [HideInInspector]public Dictionary<string, int> NpcDialogIndex;
+    [HideInInspector]public int newsNum = 0;
+    [HideInInspector]public int fileNum = 0;
 
-    protected override void Awake() 
+    protected override void Awake()
     {
         base.Awake();
-
-        NewsArray=new bool[NEWS_NUM];
 
         NpcDialogIndex=new Dictionary<string, int>();
 
@@ -47,13 +62,13 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     {
         _transitionAnimator=GameObject.Find("ScenesChangeTransition").GetComponent<Animator>();
 
-        if(next.buildIndex==COFFEE_SCENE_INDEX)
+        if(next.buildIndex==CoffeeSceneIndex)
         {
             Paragraph++;
         }
     }
 
-#region Change Scene APIs
+    #region Change Scene APIs
     /// <summary>Enter Plane Scene</summary>
     public void EnterPlane(int index)
     {
@@ -62,12 +77,12 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     /// <summary>Enter Coffee Scene</summary>
     public void EnterCoffee()
     {
-        StartCoroutine(LoadScene(COFFEE_SCENE_INDEX));
+        StartCoroutine(LoadScene(CoffeeSceneIndex));
     }
     /// <summary>Enter Night Scene</summary>
     public void ExitToNight()
     {
-        StartCoroutine(LoadScene(NIGHT_SCENE_INDEX));
+        StartCoroutine(LoadScene(NightSceneIndex));
     }
 #endregion
 
@@ -76,7 +91,7 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     {
         //Save player position if current scene is coffee scene
         Scene currentScene = SceneManager.GetActiveScene();
-        if(currentScene.buildIndex==NIGHT_SCENE_INDEX)
+        if(currentScene.buildIndex==NightSceneIndex)
         {
             playerPosition=GameObject.Find("Player").transform.position;
             Debug.Log(playerPosition.ToString());
