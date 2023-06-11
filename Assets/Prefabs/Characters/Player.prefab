@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c03ebf2d4b166d48ba06e5ee1cef8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 28.5
+  Speed: 18.48
   playerInput: {fileID: 0}
 --- !u!114 &3789576873377668704
 MonoBehaviour:
@@ -143,25 +143,9 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogDirector, Assembly-CSharp
-        m_MethodName: Onclick
+        m_TargetAssemblyTypeName: UI.MainMenuController, Assembly-CSharp
+        m_MethodName: ProcessEsc
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3a660fd3-2c57-43a5-8025-14f08d07f817
-    m_ActionName: play/ClickWhenChatting[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewsDirector, Assembly-CSharp
-        m_MethodName: ShowOrCloseNews
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -172,9 +156,13 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3f96e473-05de-47dc-a6c5-26baf6ae9eef
     m_ActionName: play/Details[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c1cd4d5-c076-4bb4-af00-b52553db589b
+    m_ActionName: Dialog/ClickWhenChatting[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: play
+  m_DefaultActionMap: Play
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!212 &3789576873377668707
