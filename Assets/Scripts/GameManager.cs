@@ -12,25 +12,20 @@ using Sirenix.Serialization;
 [ShowOdinSerializedPropertiesInInspector]
 public class GameManager : Singleton<GameManager>, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {
-    [HideInInspector]
-    public Vector3 playerPosition=new Vector3(0,1.2f,-11.6f);
-
-    public int Attack
-    {
-        get => _attack + parserCodeFragmentNum % 3;
-    }
-
-    public int Health
-    {
-        get => _health + encryptionAlgorithmCodeFragmentNum % 3;
-    }
     
+    [HideInInspector] public Vector3 playerPosition=new Vector3(0,1.2f,-11.6f);
+    
+    #region The player's attributes
     //TODO:need to fix the initial value
     private readonly int _attack=3;
     private readonly int _health=3;
-    
+    public int Attack=>_attack + parserCodeFragmentNum % 3;
+    public int Health=> _health + encryptionAlgorithmCodeFragmentNum % 3;
+
     [HideInInspector]public int parserCodeFragmentNum = 0;
     [HideInInspector]public int encryptionAlgorithmCodeFragmentNum = 0;
+    #endregion
+
     
     private const int CoffeeSceneIndex = 0;
     private const int NightSceneIndex = 1;
@@ -98,14 +93,14 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         }
 
         Debug.Log("Loading...");
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneIndex, LoadSceneMode.Single);
-
         operation.allowSceneActivation = false;
-
+        
         //Set transition animator
         _transitionAnimator.SetTrigger("Start");
         yield return new WaitForSeconds(1f);
-
+        
         while (!operation.isDone)
         {
             if (operation.progress >= 0.9f)

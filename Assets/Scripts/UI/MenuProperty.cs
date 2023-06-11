@@ -10,7 +10,8 @@ namespace UI
         public MainMenuController mainMenuController;
         protected virtual void OnEnable()
         {
-            mainMenuController.AddToUIStack(gameObject);
+            if(!mainMenuController.IsRepeat(gameObject))
+                mainMenuController.AddToUIStack(gameObject);
         }
     }
 }

@@ -26,13 +26,9 @@ namespace UI
             if (_uiHierarchy.TryPop(out var poppedUI))
             {
                 poppedUI.SetActive(false);
-                Debug.Log(poppedUI.name + " has been popped from the stack");
                 
                 if (_uiHierarchy.TryPeek(out var a))
-                {
                     a.SetActive(true);
-                    Debug.Log(a.name + "is the current UI");
-                }
             }
             else
                 mainMenu.SetActive(true);
@@ -53,6 +49,11 @@ namespace UI
         public void AddToUIStack(GameObject theGameObject)
         {
             _uiHierarchy.Push(theGameObject);
+        }
+
+        public bool IsRepeat(GameObject theGameObject)
+        {
+            return _uiHierarchy.TryPeek(out var a) && theGameObject == a ? true : false;
         }
     }
 }
