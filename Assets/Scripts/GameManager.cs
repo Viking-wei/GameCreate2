@@ -41,9 +41,11 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     public List<string>nameOfNpc;
     //NPC对话索引记录
     [HideInInspector]public Dictionary<string, int> NpcDialogIndex;
-    [HideInInspector]public int newsNum = 0;
-    [HideInInspector]public int fileNum = 0;
-
+    
+    public int newsNum = 0;
+    public int fileNum = 0;
+    
+    
     protected override void Awake()
     {
         base.Awake();
