@@ -61,17 +61,17 @@ PrefabInstance:
     - target: {fileID: 6106948191249720636, guid: 91b4274de0d32574a86559eb3b10ccb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.7710547
+      value: -13.83931
       objectReference: {fileID: 0}
     - target: {fileID: 6106948191249720636, guid: 91b4274de0d32574a86559eb3b10ccb3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.587715
+      value: 1.8000002
       objectReference: {fileID: 0}
     - target: {fileID: 6106948191249720636, guid: 91b4274de0d32574a86559eb3b10ccb3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.450264
+      value: 2.3830223
       objectReference: {fileID: 0}
     - target: {fileID: 6106948191249720636, guid: 91b4274de0d32574a86559eb3b10ccb3,
         type: 3}
@@ -133,6 +133,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Locked Door Pair
       objectReference: {fileID: 0}
+    - target: {fileID: 8549259750807696942, guid: 34f6af2e7be4c4679adb222c2befaed0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3407545
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549259750807696942, guid: 34f6af2e7be4c4679adb222c2befaed0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2735443
+      objectReference: {fileID: 0}
     - target: {fileID: 9043881330628363154, guid: 34f6af2e7be4c4679adb222c2befaed0,
         type: 3}
       propertyPath: m_RootOrder
@@ -141,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 9043881330628363154, guid: 34f6af2e7be4c4679adb222c2befaed0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1
+      value: -1.3193077
       objectReference: {fileID: 0}
     - target: {fileID: 9043881330628363154, guid: 34f6af2e7be4c4679adb222c2befaed0,
         type: 3}
@@ -151,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 9043881330628363154, guid: 34f6af2e7be4c4679adb222c2befaed0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.06
+      value: -0.61697817
       objectReference: {fileID: 0}
     - target: {fileID: 9043881330628363154, guid: 34f6af2e7be4c4679adb222c2befaed0,
         type: 3}
