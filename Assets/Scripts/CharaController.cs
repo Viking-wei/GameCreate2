@@ -9,8 +9,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody))]
 public class CharaController : MonoBehaviour
 {
-    [Header("BasicSettings")] public float Speed = 2f;
-    [HideInInspector] public PlayerInput playerInput;
+    [Header("BasicSettings")] 
+    public float Speed = 2f;
+    public Transform birthPosition;
+    
+    [HideInInspector] 
+    public PlayerInput playerInput;
 
     private const string TalkPrompt = "交谈";
     private const string CollectionPrompt = "拾取";
@@ -28,8 +32,8 @@ public class CharaController : MonoBehaviour
     private bool _isAllowToUsePortal;
     private bool _isAllowToTake;
     private GameObject _collectionObject;
-    private int _targetPlaneIndex;
-    private Vector3 _targetPortalPosition;
+    private HackerPropertyController _hackerPropertyController;
+    private GameObject _triggeredGameObject;
 
 
     public static Action<Vector3, Vector3, DialogStorage> InvokeChat;
@@ -47,7 +51,10 @@ public class CharaController : MonoBehaviour
 
     private void Start()
     {
-        // transform.position = GameManager.Instance.playerPosition;
+        transform.position=GameManager.Instance.playerPosition==Vector3.zero?
+            birthPosition.position:
+            GameManager.Instance.playerPosition;
+        /*transform.position = birthPosition.position;*/
     }
 
     private void FixedUpdate()
@@ -88,7 +95,7 @@ public class CharaController : MonoBehaviour
         else if (other.CompareTag("EnterPlaneTrigger"))
         {
             _isAllowToEnterPlane = true;
-            _targetPlaneIndex = other.GetComponent<EnterPlaneSettings>().TargetPlaneIndex;
+            _hackerPropertyController = other.transform.parent.GetComponent<HackerPropertyController>();
             ShowPrompt?.Invoke(InvadePrompt);
         }
         else if (other.CompareTag("Collections"))
@@ -100,7 +107,7 @@ public class CharaController : MonoBehaviour
         else if (other.CompareTag("Portal"))
         {
             _isAllowToUsePortal = true;
-            _targetPortalPosition = other.transform.parent.GetComponent<PortalSettings>().GetTargetPosition(other.gameObject);
+            _triggeredGameObject = other.gameObject;
             ShowPrompt?.Invoke(PortalPrompt);
         }
     }
@@ -146,18 +153,37 @@ public class CharaController : MonoBehaviour
         else if (_isAllowToEnterPlane)
         {
             ClosePrompt?.Invoke();
-            Debug.Log("Plane");
-            GameManager.Instance.EnterPlane(_targetPlaneIndex);
+            switch (_hackerPropertyController.hackerProperty)
+            {
+                case HackerProperty.None:
+                    Debug.Log("None hacker");
+                    break;  
+                case HackerProperty.Unlocked:
+                    _hackerPropertyController.UnLockedAllTriggeredPortals();
+                    break;
+                case HackerProperty.End:
+                    Debug.Log("Game End");
+                    break;
+                default:
+                    Debug.Log("noting need to deal with");
+                    break;
+            }
+            GameManager.Instance.EnterPlane(_hackerPropertyController.targetPlaneIndex);
         }
         else if (_isAllowToUsePortal)
         {
             ClosePrompt?.Invoke();
-            transform.position = _targetPortalPosition;
+            PortalSettings portalSettings= _triggeredGameObject.GetComponent<PortalSettings>();
+            if(portalSettings.TryGetTargetPosition(_triggeredGameObject,out var targetPosition))
+                transform.position = targetPosition;
+            else
+                ShowPrompt?.Invoke("被锁住的门！");
         }
         else if (_isAllowToTake)
         {
+            _collectionObject.SetActive(false);
             ClosePrompt?.Invoke();
-            Destroy(_collectionObject);
+            
         }
     }
 

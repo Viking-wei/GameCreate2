@@ -8,12 +8,13 @@ using UnityEngine.UI;
 using TMPro;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tools;
 
 [ShowOdinSerializedPropertiesInInspector]
 public class GameManager : Singleton<GameManager>, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {
     
-    [HideInInspector] public Vector3 playerPosition=new Vector3(0,1.2f,-11.6f);
+    [HideInInspector] public Vector3 playerPosition;
     
     #region The player's attributes
     //TODO:need to fix the initial value
@@ -49,9 +50,8 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     protected override void Awake()
     {
         base.Awake();
-
+        playerPosition = Vector3.zero;
         NpcDialogIndex=new Dictionary<string, int>();
-
         SceneManager.activeSceneChanged+=FindFadedCanvas;
     }
 
@@ -91,6 +91,11 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         if(currentScene.buildIndex==NightSceneIndex)
         {
             playerPosition=GameObject.Find("Player").transform.position;
+            Debug.Log(playerPosition.ToString());
+        }
+        if(currentScene.buildIndex==CoffeeSceneIndex)
+        {
+            playerPosition=Vector3.zero;
             Debug.Log(playerPosition.ToString());
         }
 
