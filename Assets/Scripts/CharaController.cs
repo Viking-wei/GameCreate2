@@ -5,16 +5,15 @@ using UnityEngine.InputSystem;
 using System;
 using UnityEngine.SceneManagement;
 
-
-[RequireComponent(typeof(Rigidbody))]
 public class CharaController : MonoBehaviour
 {
     [Header("BasicSettings")] 
-    public float Speed = 2f;
+    public float speed = 2f;
     public Transform birthPosition;
     
     [HideInInspector] 
     public PlayerInput playerInput;
+    private const float Gravity = 9.8f;
 
     private const string TalkPrompt = "交谈";
     private const string CollectionPrompt = "拾取";
@@ -22,11 +21,11 @@ public class CharaController : MonoBehaviour
     private const string InvadePrompt = "入侵";
 
     private Vector2 _moveDir;
-    private Rigidbody _rigid;
+    private bool _isGrounded;
+    private CharacterController _controller;
     private Animator _anim;
     private SpriteRenderer _sR;
     private GameObject _npc;
-    private bool _isOnGround;
     private bool _isAllowToChat;
     private bool _isAllowToEnterPlane;
     private bool _isAllowToUsePortal;
@@ -34,6 +33,7 @@ public class CharaController : MonoBehaviour
     private GameObject _collectionObject;
     private HackerPropertyController _hackerPropertyController;
     private GameObject _triggeredGameObject;
+    private GameManager _gameManagerInstance;
 
 
     public static Action<Vector3, Vector3, DialogStorage> InvokeChat;
@@ -43,7 +43,7 @@ public class CharaController : MonoBehaviour
 
     private void Awake()
     {
-        _rigid = GetComponent<Rigidbody>();
+        _controller = GetComponent<CharacterController>();
         _anim = GetComponent<Animator>();
         _sR = GetComponent<SpriteRenderer>();
         playerInput = GetComponent<PlayerInput>();
@@ -54,35 +54,26 @@ public class CharaController : MonoBehaviour
         transform.position=GameManager.Instance.playerPosition==Vector3.zero?
             birthPosition.position:
             GameManager.Instance.playerPosition;
-        /*transform.position = birthPosition.position;*/
+        _gameManagerInstance= GameManager.Instance;
     }
 
     private void FixedUpdate()
     {
-        //moving
-        if (_isOnGround)
-        {
-            //Animation processing
-            _anim.SetFloat("WLAR", Mathf.Abs(_moveDir.x));
-            _anim.SetFloat("WFAB", _moveDir.y);
+        //Animation processing
+        _anim.SetFloat("WLAR", Mathf.Abs(_moveDir.x));
+        _anim.SetFloat("WFAB", _moveDir.y);
 
-            if (_moveDir.x > 0.01) _sR.flipX = true;
-            if (_moveDir.x < -0.01) _sR.flipX = false;
+        if (_moveDir.x > 0.01) _sR.flipX = true;
+        if (_moveDir.x < -0.01) _sR.flipX = false;
+        
+        _isGrounded=Physics.Raycast(transform.position,Vector3.down,_controller.height*0.5f+0.1f);
 
-            _rigid.velocity = new Vector3(_moveDir.x * Speed, _rigid.velocity.y, _moveDir.y * Speed);
-        }
+        if (!_isGrounded)
+            _controller.Move(Gravity*Time.fixedDeltaTime*Vector3.down);
+        var trueDir=new Vector3(_moveDir.x,0,_moveDir.y);
+        _controller.Move(trueDir * (speed * Time.fixedDeltaTime));
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        _isOnGround = true;
-    }
-
-    private void OnCollisionExit(Collision collisionInfo)
-    {
-        _isOnGround = false;
-    }
-
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -138,7 +129,6 @@ public class CharaController : MonoBehaviour
             playerInput.SwitchCurrentActionMap("Dialog");
 
             //stop animation when chatting
-            _rigid.velocity = Vector3.zero;
             _anim.SetFloat("WLAR", 0);
             _anim.SetFloat("WFAB", 0);
 
@@ -177,13 +167,14 @@ public class CharaController : MonoBehaviour
             if(portalSettings.TryGetTargetPosition(_triggeredGameObject,out var targetPosition))
                 transform.position = targetPosition;
             else
-                ShowPrompt?.Invoke("被锁住的门！");
+                _gameManagerInstance.SendMessageToUI("上锁的传送门!");
+                
         }
         else if (_isAllowToTake)
         {
             _collectionObject.SetActive(false);
             ClosePrompt?.Invoke();
-            
+            _gameManagerInstance.SendMessageToUI("收集到一个文件");
         }
     }
 

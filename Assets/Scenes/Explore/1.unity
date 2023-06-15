@@ -5073,6 +5073,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161639997932848887, guid: 4b1a88ead61d2b147aedc209542a6043,
         type: 3}
+      propertyPath: messagePrefab
+      value: 
+      objectReference: {fileID: 8063705301945631397, guid: c25edf490f7575d46a26231632775e01,
+        type: 3}
+    - target: {fileID: 4161639997932848887, guid: 4b1a88ead61d2b147aedc209542a6043,
+        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 0}
@@ -10764,11 +10770,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341322971054776, guid: bb22ea4214c77784c96ecc3cb6bc0608, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -7.98
       objectReference: {fileID: 0}
     - target: {fileID: 4341322971054776, guid: bb22ea4214c77784c96ecc3cb6bc0608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4341322971054776, guid: bb22ea4214c77784c96ecc3cb6bc0608, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30603,15 +30609,15 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ProcessEsc
       objectReference: {fileID: 0}
-    - target: {fileID: 3789576873377668705, guid: 23c2ceed0743a6f48831ac746bc610ea,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668710, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
       propertyPath: Speed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789576873377668710, guid: 23c2ceed0743a6f48831ac746bc610ea,
+        type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3789576873377668710, guid: 23c2ceed0743a6f48831ac746bc610ea,
         type: 3}
@@ -30680,6 +30686,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c2ceed0743a6f48831ac746bc610ea, type: 3}
+--- !u!1 &823494406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3789576873377668712, guid: 23c2ceed0743a6f48831ac746bc610ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 823494405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &823494407
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823494406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.24
+  m_Radius: 0.52
+  m_SlopeLimit: 45
+  m_StepOffset: 0.35
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &824122627
 PrefabInstance:
   m_ObjectHideFlags: 0
