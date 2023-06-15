@@ -98,7 +98,7 @@ public class CharaController : MonoBehaviour
         else if (other.CompareTag("Portal"))
         {
             _isAllowToUsePortal = true;
-            _triggeredGameObject = other.gameObject;
+            _triggeredGameObject = other.transform.parent.gameObject;
             ShowPrompt?.Invoke(PortalPrompt);
         }
     }
@@ -163,7 +163,7 @@ public class CharaController : MonoBehaviour
         else if (_isAllowToUsePortal)
         {
             ClosePrompt?.Invoke();
-            PortalSettings portalSettings= _triggeredGameObject.GetComponent<PortalSettings>();
+            PortalSettings portalSettings= _triggeredGameObject.GetComponentInParent<PortalSettings>();
             if(portalSettings.TryGetTargetPosition(_triggeredGameObject,out var targetPosition))
                 transform.position = targetPosition;
             else
