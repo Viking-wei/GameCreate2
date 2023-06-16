@@ -16,9 +16,12 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     
     [HideInInspector] public Vector3 playerPosition;
     public GameObject messagePrefab;
+    public int exploreIndex;
+    public bool isToCoffee;
+    private Queue<string> _messageQueue;
+
 
     private const int CoffeeSceneIndex = 0;
-    private const int NightSceneIndex = 1;
     private const int NewsNum=13;
     
     public static int Paragraph=0;
@@ -41,19 +44,30 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
         base.Awake();
         playerPosition = Vector3.zero;
         NpcDialogIndex=new Dictionary<string, int>();
-        SceneManager.activeSceneChanged+=FindFadedCanvas;
+        _messageQueue = new Queue<string>();
+        exploreIndex = 1;
+        SceneManager.activeSceneChanged += FindFadedCanvas;
+        SceneManager.activeSceneChanged += FlushMessageBox;
     }
-    
 
+    public void AddToMessageDeque(string mes)
+    {
+        _messageQueue.Enqueue(mes);
+    }
     private void FindFadedCanvas(Scene current, Scene next)
     {
-        /*_transitionAnimator=GameObject.Find("ScenesChangeTransition").GetComponent<Animator>();*/
-        _theGameUIRectTransform = GameObject.Find("UI").GetComponent<RectTransform>();
-
+        _transitionAnimator=GameObject.Find("ScenesChangeTransition").GetComponent<Animator>();
         if(next.buildIndex==CoffeeSceneIndex)
-        {
             Paragraph++;
-        }
+        if(next.buildIndex==exploreIndex)
+            _theGameUIRectTransform = GameObject.Find("UI").GetComponent<RectTransform>();
+        
+    }
+    private void FlushMessageBox(Scene current, Scene next)
+    {
+        if (next.buildIndex != exploreIndex) return;
+        while (_messageQueue.TryDequeue(out var mes))
+            SendMessageToUI(mes);
     }
     
     public void SendMessageToUI(string message)
@@ -79,7 +93,13 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     /// <summary>Enter Night Scene</summary>
     public void ExitToNight()
     {
-        StartCoroutine(LoadScene(NightSceneIndex));
+        if (isToCoffee)
+        {
+            StartCoroutine(LoadScene(CoffeeSceneIndex));
+            isToCoffee = false;
+        }        
+        else
+            StartCoroutine(LoadScene(exploreIndex));
     }
 #endregion
 
@@ -88,7 +108,7 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     {
         //Save player position if current scene is coffee scene
         Scene currentScene = SceneManager.GetActiveScene();
-        if(currentScene.buildIndex==NightSceneIndex)
+        if(currentScene.buildIndex==exploreIndex)
         {
             playerPosition=GameObject.Find("Player").transform.position;
             Debug.Log(playerPosition.ToString());

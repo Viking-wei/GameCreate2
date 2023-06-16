@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackerProperty: 0
-  targetPlaneIndex: 2
+  targetPlaneIndex: 4
   thePortalList: []
 --- !u!64 &5534793120380395784
 MeshCollider:

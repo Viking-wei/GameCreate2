@@ -22,10 +22,7 @@ namespace UI
         {
             var data = ReadJsonUlilities.ReadJson(FilePath);
             _fileDataList = JsonConvert.DeserializeObject<FileDataList>(data);
-            
-            Debug.Log(_fileDataList.Data.Count);
-            Debug.Log(fileButtonContentList.Count);
-            
+
             //Initialize the file list title
             for (var i = 0; i < fileButtonContentList.Count; i++)
             {

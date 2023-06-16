@@ -15,7 +15,7 @@ public enum HackerProperty
 public class HackerPropertyController : MonoBehaviour
 {
     public HackerProperty hackerProperty;
-    [Range(2,5)] public int targetPlaneIndex;
+    public int targetPlaneIndex;
     public List<PortalSettings> thePortalList;
 
     public void UnLockedAllTriggeredPortals()

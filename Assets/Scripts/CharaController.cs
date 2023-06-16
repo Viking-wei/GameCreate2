@@ -47,6 +47,7 @@ public class CharaController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _sR = GetComponent<SpriteRenderer>();
         playerInput = GetComponent<PlayerInput>();
+        Physics.autoSyncTransforms = true;
     }
 
     private void Start()
@@ -153,22 +154,27 @@ public class CharaController : MonoBehaviour
                     break;
                 case HackerProperty.End:
                     Debug.Log("Game End");
+                    _gameManagerInstance.isToCoffee = true;
                     break;
                 default:
                     Debug.Log("noting need to deal with");
                     break;
             }
-            GameManager.Instance.EnterPlane(_hackerPropertyController.targetPlaneIndex);
+
+            Scene scene = SceneManager.GetActiveScene();
+            _gameManagerInstance.exploreIndex = scene.buildIndex;
+            _gameManagerInstance.AddToMessageDeque("传送门已解锁");
+            _gameManagerInstance.EnterPlane(_hackerPropertyController.targetPlaneIndex);
+            Destroy(_hackerPropertyController.gameObject);
         }
         else if (_isAllowToUsePortal)
         {
             ClosePrompt?.Invoke();
             PortalSettings portalSettings= _triggeredGameObject.GetComponentInParent<PortalSettings>();
-            if(portalSettings.TryGetTargetPosition(_triggeredGameObject,out var targetPosition))
+            if(portalSettings.TryGetTargetPosition(_triggeredGameObject.transform.GetChild(0).gameObject,out var targetPosition))
                 transform.position = targetPosition;
             else
                 _gameManagerInstance.SendMessageToUI("上锁的传送门!");
-                
         }
         else if (_isAllowToTake)
         {
