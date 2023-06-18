@@ -113,6 +113,8 @@ public class PlanePlayer : Character
     {
         startsBar_HUD.UpdateStats(0f, maxHealth);
         base.Die();
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.buildIndex);
     }
     // Update is called once per frame
     #region MOVE

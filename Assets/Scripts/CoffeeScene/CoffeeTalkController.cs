@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
@@ -28,10 +27,15 @@ public class CoffeeTalkController : MonoBehaviour
     public GameObject transition;
     [Header("Selector")]
     public GameObject[] selector;
+    [Header("Sprite of NPC")]
+    public SpriteRenderer npcSpriteRenderer;
+    public Sprite[] npcSpriteActTwo;
+    public Sprite[] npcSpriteActThree;
+
 
     const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
-    private int _currentID = 0;
+    [SerializeField]private int _currentID = 0;
     private bool _isInBranches = false;
     private bool _endDialog = false;
     private bool _isPartEnd = false;
@@ -81,45 +85,15 @@ public class CoffeeTalkController : MonoBehaviour
 
     private void NextDialog()
     {
-
         FillRequisiteText();
-
         SetDialogImagePosition();
-
         dialogBackground.gameObject.SetActive(true);
+        
+        if(GameManager.Paragraph==2)npcSpriteRenderer.sprite=npcSpriteActTwo[_currentAct];
+        if(GameManager.Paragraph==3)npcSpriteRenderer.sprite=npcSpriteActThree[_currentAct];
 
         StartCoroutine(ShowWordSlow(_currentDialogText));
     }
-
-    // private void ProcessBranches()
-    // {
-    //     dialogBackground.gameObject.SetActive(false);
-    //     _isInBranches = true;
-
-    //     int branchNum = _dialogTextRepository.Data[_currentID].BranchesNum;
-    //     int baseID = _dialogTextRepository.Data[_currentID].JumpID;
-
-    //     if (branchNum == 2)
-    //     {
-    //         for (int i = 0; i < branchNum; i++)
-    //         {
-    //             s2Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
-    //         }
-    //         selector2.SetActive(true);
-    //         selector3.SetActive(false);
-    //     }
-    //     else if (branchNum == 3)
-    //     {
-    //         for (int i = 0; i < branchNum; i++)
-    //         {
-    //             s3Branch[i].text = _dialogTextRepository.Data[baseID + i].Content;
-    //         }
-    //         selector2.SetActive(false);
-    //         selector3.SetActive(true);
-    //     }
-    //     else
-    //         Debug.LogWarning($"Configure error of {_currentID} ");
-    // }
 
     private IEnumerator ShowWordSlow(string content)
     {
@@ -190,7 +164,7 @@ public class CoffeeTalkController : MonoBehaviour
         {
             _endDialog = true;
             StartCoroutine(SetTransition());
-            jID=0;
+            _currentID=0;  
             _dialogTextRepository = DialogText.dialogTextRepository[++_currentAct];
         }
         else if (jID == -2)
@@ -244,11 +218,14 @@ public class CoffeeTalkController : MonoBehaviour
         if (Convert.ToBoolean(extendInfo & 1))
         {
             GameManager.Instance.newsNum++;
+            GameManager.Instance.SendMessageToUI("解锁新线索！");
         }
         //解锁文件
         if (Convert.ToBoolean(extendInfo & 2))
         {
             GameManager.Instance.fileNum++;
+            GameManager.Instance.SendMessageToUI("解锁新文件！");
+
         }
         //制作咖啡
         if (Convert.ToBoolean(extendInfo & 4))

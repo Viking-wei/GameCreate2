@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
-using UnityEditor;
-using UnityEngine.UI;
 using TMPro;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -19,12 +16,11 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     public int exploreIndex;
     public bool isToCoffee;
     private Queue<string> _messageQueue;
-
-
-    private const int CoffeeSceneIndex = 0;
+    
+    private const int CoffeeSceneIndex = 5;
     private const int NewsNum=13;
     
-    public static int Paragraph=0;
+    public static int Paragraph;
     
     private Animator _transitionAnimator;
     private RectTransform _theGameUIRectTransform;
@@ -57,11 +53,25 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     private void FindFadedCanvas(Scene current, Scene next)
     {
         _transitionAnimator=GameObject.Find("ScenesChangeTransition").GetComponent<Animator>();
-        if(next.buildIndex==CoffeeSceneIndex)
+        if (next.buildIndex == CoffeeSceneIndex)
+        {
             Paragraph++;
-        if(next.buildIndex==exploreIndex)
+            if (Paragraph != 1)
+            {
+                var hackerAndCollectionList = transform.Find("HackerAndCollectionList");
+                var portalList = transform.Find("PortalList");
+                Destroy(hackerAndCollectionList.gameObject);
+                Destroy(portalList.gameObject);
+            }
+        }
+        if (next.buildIndex == exploreIndex)
             _theGameUIRectTransform = GameObject.Find("UI").GetComponent<RectTransform>();
-        
+        if (next.buildIndex == CoffeeSceneIndex)
+        {
+            _theGameUIRectTransform = GameObject.Find("CoffeePanel").GetComponent<RectTransform>();
+            isToCoffee = true;
+        }
+
     }
     private void FlushMessageBox(Scene current, Scene next)
     {
@@ -93,12 +103,12 @@ public class GameManager : Singleton<GameManager>, ISerializationCallbackReceive
     /// <summary>Enter Night Scene</summary>
     public void ExitToNight()
     {
-        if (isToCoffee)
+        /*if (isToCoffee)
         {
             StartCoroutine(LoadScene(CoffeeSceneIndex));
             isToCoffee = false;
         }        
-        else
+        else*/
             StartCoroutine(LoadScene(exploreIndex));
     }
 #endregion

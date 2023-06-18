@@ -180,6 +180,7 @@ public class CharaController : MonoBehaviour
         {
             _collectionObject.SetActive(false);
             ClosePrompt?.Invoke();
+            _gameManagerInstance.fileNum++;
             _gameManagerInstance.SendMessageToUI("收集到一个文件");
         }
     }

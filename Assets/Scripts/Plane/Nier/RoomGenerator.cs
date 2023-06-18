@@ -1,22 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class RoomGenerator : MonoBehaviour
 {
     public enum Direction {up,down,left,right};
     public Direction direction;
 
-    [Header("·¿¼äÐÅÏ¢")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢")]
     public GameObject roomPrefab;
-    public int roomNumber;
+    public static int roomNumber = 7;
     public Color startColor, endColor;
     private GameObject endRoom;
     public GameObject endDoor;
 
-    [Header("Î»ÖÃ¿ØÖÆ")]
+    [Header("Î»ï¿½Ã¿ï¿½ï¿½ï¿½")]
     public Transform generatorPoint;
     public float xOffset;
     public float yOffset;
@@ -32,11 +30,12 @@ public class RoomGenerator : MonoBehaviour
     public WallType wallType;
     private void Start()
     {
+        roomNumber += 1;
         for(int i = 0;i<roomNumber; i++)
         {
             rooms.Add(Instantiate(roomPrefab,generatorPoint.position,Quaternion.identity).GetComponent<Room>());
 
-            //¸Ä±äpointÎ»ÖÃ
+            //ï¿½Ä±ï¿½pointÎ»ï¿½ï¿½
             ChangePointPos();
         }
 

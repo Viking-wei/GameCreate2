@@ -62,7 +62,7 @@ public class Room : MonoBehaviour
                 
                 int number1 = Random.Range(stepToStart+1, (stepToStart*3/2)+1);
                 int number2 = Random.Range((stepToStart * 11 / 12) -1, (stepToStart * 11 / 9) );
-                int number3 = Random.Range((stepToStart*11/19) - 2, (stepToStart * 11 / 13) - 1);
+                int number3 = Random.Range((stepToStart*11/19) - 1, (stepToStart * 11 / 13) - 2);
                 for (int i = 0; i < number1; i++)
                 {
                     PoolManager.Release(enemyPrefab1, RandomPointInBounds(GetComponent<Collider2D>().bounds));

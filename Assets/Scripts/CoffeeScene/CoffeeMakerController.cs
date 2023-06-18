@@ -38,16 +38,7 @@ public class CoffeeMakerController : MonoBehaviour
 
         _coffeeResult.Clear();
     }
-
-    private void Update()
-    {
-        //FIXME: This is a temporary solution to play the timeline
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            playableDirector.Play();
-        }
-    }
-
+    
     /// <summary>the method is called when a button is selected in the UI</summary>
     ///<param name="muteTrackName">the name of the track to mute</param>
     public void OnSelected(string muteTrackName)

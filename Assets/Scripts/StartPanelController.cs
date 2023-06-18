@@ -16,7 +16,7 @@ public class StartPanelController : MonoBehaviour
     }
     private IEnumerator ProcessSceneChange()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(5, LoadSceneMode.Single);
         operation.allowSceneActivation = false;
         
         while (!operation.isDone)

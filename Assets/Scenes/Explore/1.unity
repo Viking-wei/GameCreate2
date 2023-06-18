@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5156,17 +5156,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4161639997932848887, guid: 4b1a88ead61d2b147aedc209542a6043,
-        type: 3}
-      propertyPath: fileNum
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4161639997932848887, guid: 4b1a88ead61d2b147aedc209542a6043,
-        type: 3}
-      propertyPath: messagePrefab
-      value: 
-      objectReference: {fileID: 8063705301945631397, guid: c25edf490f7575d46a26231632775e01,
-        type: 3}
     - target: {fileID: 4161639997932848887, guid: 4b1a88ead61d2b147aedc209542a6043,
         type: 3}
       propertyPath: serializationData.Prefab
