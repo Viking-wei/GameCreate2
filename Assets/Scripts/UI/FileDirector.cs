@@ -15,7 +15,7 @@ namespace UI
         public TextMeshProUGUI fileContent;
         public List<TextMeshProUGUI> fileButtonContentList;
         
-        private const string FilePath="/DialogInfo/File.json";
+        private const string FilePath="/File.json";
         private FileDataList _fileDataList;
 
         private void Start()

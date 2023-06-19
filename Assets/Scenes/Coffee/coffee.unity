@@ -5752,6 +5752,11 @@ MonoBehaviour:
   - {fileID: 1791695075}
   - {fileID: 666520285}
   npcSpriteRenderer: {fileID: 1368389025}
+  npcSpriteActOne:
+  - {fileID: 21300000, guid: 6d3a86cd8fe1ec14f9b58e00a588be3a, type: 3}
+  - {fileID: 21300000, guid: 2c55be4b01fb164469eb37ea32a0bef8, type: 3}
+  - {fileID: 21300000, guid: 2c55be4b01fb164469eb37ea32a0bef8, type: 3}
+  - {fileID: 21300000, guid: 6d3a86cd8fe1ec14f9b58e00a588be3a, type: 3}
   npcSpriteActTwo:
   - {fileID: 21300000, guid: 8c6fb0da650ed684f87f9cf53a31bf14, type: 3}
   - {fileID: 21300000, guid: 8c6fb0da650ed684f87f9cf53a31bf14, type: 3}
@@ -5764,7 +5769,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e9e577df68ee4be44acfece629d3bff5, type: 3}
   - {fileID: 21300000, guid: e9e577df68ee4be44acfece629d3bff5, type: 3}
   - {fileID: 21300000, guid: e9e577df68ee4be44acfece629d3bff5, type: 3}
-  _currentID: 0
 --- !u!1 &1368389023
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public static class ReadJsonUlilities
     public static string ReadJson(string path)
     {
         string jsonData;
-        string fileUrl = Application.dataPath + path;
+        string fileUrl = Application.streamingAssetsPath + path;
 
         using (StreamReader sr = File.OpenText(fileUrl))
         {

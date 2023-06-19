@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -29,13 +30,14 @@ public class CoffeeTalkController : MonoBehaviour
     public GameObject[] selector;
     [Header("Sprite of NPC")]
     public SpriteRenderer npcSpriteRenderer;
+    public Sprite[] npcSpriteActOne;
     public Sprite[] npcSpriteActTwo;
     public Sprite[] npcSpriteActThree;
 
 
     const string PlayerName = "大卫";
     private DialogTextRepository _dialogTextRepository;
-    [SerializeField]private int _currentID = 0;
+    private int _currentID = 0;
     private bool _isInBranches = false;
     private bool _endDialog = false;
     private bool _isPartEnd = false;
@@ -89,8 +91,21 @@ public class CoffeeTalkController : MonoBehaviour
         SetDialogImagePosition();
         dialogBackground.gameObject.SetActive(true);
         
-        if(GameManager.Paragraph==2)npcSpriteRenderer.sprite=npcSpriteActTwo[_currentAct];
-        if(GameManager.Paragraph==3)npcSpriteRenderer.sprite=npcSpriteActThree[_currentAct];
+        switch (GameManager.Paragraph)
+        {
+            case 1:
+                npcSpriteRenderer.sprite=npcSpriteActOne[_currentAct];
+                break;
+            case 2 :
+                npcSpriteRenderer.sprite=npcSpriteActTwo[_currentAct];
+                break;
+            case 3:
+                npcSpriteRenderer.sprite=npcSpriteActThree[_currentAct];
+                break;
+            default:
+                Debug.LogError("paragraph out of range");
+                break;
+        }
 
         StartCoroutine(ShowWordSlow(_currentDialogText));
     }

@@ -18,7 +18,7 @@ namespace UI
         public List<TextMeshProUGUI> newsButtonContentList;
         
         private NewsList _newsList;
-        private const string Path = "/DialogInfo/News.json";
+        private const string Path = "/News.json";
     
         private void Start()
         {
